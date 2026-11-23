@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "meta": {
+    "name": "Electronics enclosure"
+  },
+  "scene": {
+    "sources": [
+      {
+        "id": "enclosure",
+        "kind": "step",
+        "uri": "enclosure.step",
+        "mm_per_unit": 1,
+        "sha256": "74902e36e26b5c3fec19d4783e991ebbe109aa6efcaa32c5d180f17bf3dc0e00"
+      }
+    ],
+    "links": [
+      {
+        "id": "enclosure.link",
+        "name": "enclosure",
+        "meshes": [
+          {
+            "id": "enclosure.shell",
+            "source": "enclosure",
+            "node": "enclosure/shell",
+            "tri_count": 244
+          },
+          {
+            "id": "enclosure.divider",
+            "source": "enclosure",
+            "node": "enclosure/divider",
+            "tri_count": 12
+          },
+          {
+            "id": "enclosure.standoff_1",
+            "source": "enclosure",
+            "node": "enclosure/standoff_1",
+            "tri_count": 100
+          },
+          {
+            "id": "enclosure.standoff_2",
+            "source": "enclosure",
+            "node": "enclosure/standoff_2",
+            "tri_count": 100
+          },
+          {
+            "id": "enclosure.standoff_3",
+            "source": "enclosure",
+            "node": "enclosure/standoff_3",
+            "tri_count": 100
+          },
+          {
+            "id": "enclosure.standoff_4",
+            "source": "enclosure",
+            "node": "enclosure/standoff_4",
+            "tri_count": 100
+          }
+        ]
+      }
+    ],
+    "joints": []
+  },
+  "zones": [],
+  "components": [],
+  "connections": [],
+  "cables": [],
+  "routes": [],
+  "fixings": [],
+  "mounts": [],
+  "checks": []
+}

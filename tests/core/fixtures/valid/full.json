@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "meta": { "name": "Full example", "notes": "Every section populated." },
+  "scene": {
+    "sources": [
+      { "id": "arm", "kind": "urdf", "uri": "models/arm.urdf", "mm_per_unit": 1000, "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef" }
+    ],
+    "links": [
+      { "id": "base", "name": "Base", "meshes": [{ "id": "base-mesh", "source": "arm", "node": "base_link", "tri_count": 200 }] },
+      { "id": "upper", "name": "Upper arm", "meshes": [{ "id": "upper-mesh", "source": "arm", "node": "upper_link", "tri_count": 120 }] },
+      { "id": "slider", "name": "Slider", "meshes": [] }
+    ],
+    "joints": [
+      {
+        "id": "shoulder", "name": "Shoulder", "type": "revolute", "parent": "base", "child": "upper",
+        "origin": { "p_mm": [0, 0, 100], "q": [0, 0, 0, 1] },
+        "axis": [0, 1, 0],
+        "limit": { "lower": -1.5, "upper": 1.5 },
+        "value": 0.25
+      },
+      {
+        "id": "extend", "name": "Extend", "type": "prismatic", "parent": "upper", "child": "slider",
+        "origin": { "p_mm": [150, 0, 0], "q": [0, 0, 0, 1] },
+        "axis": [1, 0, 0],
+        "limit": { "lower": 0, "upper": 50 },
+        "value": 10
+      }
+    ]
+  },
+  "zones": [
+    { "id": "zone-a", "name": "Top plate", "kind": "mount_allowed", "link": "base", "mesh": "base-mesh", "triangles": [0, 10, 20, 5] },
+    { "id": "zone-b", "name": "Keep out", "kind": "keep_out", "link": "upper", "mesh": "upper-mesh", "triangles": [100, 20] }
+  ],
+  "components": [
+    { "id": "mcu", "name": "Controller", "part": "generic-controller-70x50", "link": "base", "pose": { "p_mm": [0, 0, 5], "q": [0, 0, 0, 1] }, "zone": "zone-a" },
+    { "id": "imu", "name": "IMU", "part": "generic-breakout-25x18", "link": "upper", "pose": { "p_mm": [20, 0, 0], "q": [0, 0, 0, 1] } }
+  ],
+  "connections": [
+    { "id": "c-i2c", "name": "IMU bus", "from": { "component": "mcu", "port": "i2c0" }, "to": { "component": "imu", "port": "i2c-in" }, "interface": "i2c", "current_a": 0.02, "voltage_v": 3.3 }
+  ],
+  "cables": [
+    { "id": "cable-1", "connections": ["c-i2c"], "type": "lib:jst-sh-4-28awg", "length_mm": 300, "reasons": ["bend.round.default"] }
+  ],
+  "routes": [
+    {
+      "id": "route-1", "cable": "cable-1",
+      "segments": [
+        { "link": "base", "points_mm": [[35, 10, 8], [60, 10, 90]] },
+        { "link": "upper", "points_mm": [[0, 0, 5], [-12.5, 0, 7]] }
+      ],
+      "crossings": [{ "joint": "shoulder", "strategy": "service_loop", "slack_mm": 25 }]
+    }
+  ],
+  "fixings": [{ "id": "fix-1", "route": "route-1", "at_mm": 50, "part": "gen:clip-4mm" }],
+  "mounts": [{ "id": "mount-1", "component": "mcu", "kind": "standoffs", "params": { "height_mm": 6 } }],
+  "checks": [{ "rule": "bend.round.default", "target": "cable-1", "status": "pass", "value": 12, "limit": 10, "message": "ok" }]
+}

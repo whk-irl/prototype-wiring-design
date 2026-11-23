@@ -1,0 +1,608 @@
+# Cable types. Format: src/core/cables.ts (CableTypeSchema). Sources and rules: docs/CABLES.md.
+#
+# Every entry cites the page or datasheet that was opened. confidence 'datasheet' means
+# the maker states the bend radius; 'derived' means the outer size is the maker's but the
+# bend radius is a multiple (the maker's own, or the library rule in docs/CABLES.md).
+version: 1
+cables:
+  - id: ul1007-28awg
+    name: "Hook-up wire, UL1007 PVC, 28 AWG (7/36 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 1.17 }
+    conductors: 1
+    awg: 28
+    min_bend_mm: { static: 9.4 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.046 in = 1.17 mm is the nominal overall diameter of the stranded wire (7/36 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: ul1007-26awg
+    name: "Hook-up wire, UL1007 PVC, 26 AWG (7/34 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 1.27 }
+    conductors: 1
+    awg: 26
+    min_bend_mm: { static: 10.2 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.050 in = 1.27 mm is the nominal overall diameter of the stranded wire (7/34 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: ul1007-24awg
+    name: "Hook-up wire, UL1007 PVC, 24 AWG (7/32 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 1.42 }
+    conductors: 1
+    awg: 24
+    min_bend_mm: { static: 11.4 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.056 in = 1.42 mm is the nominal overall diameter of the stranded wire (7/32 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: ul1007-22awg
+    name: "Hook-up wire, UL1007 PVC, 22 AWG (7/30 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 1.57 }
+    conductors: 1
+    awg: 22
+    min_bend_mm: { static: 12.6 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.062 in = 1.57 mm is the nominal overall diameter of the stranded wire (7/30 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: ul1007-20awg
+    name: "Hook-up wire, UL1007 PVC, 20 AWG (10/30 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 1.78 }
+    conductors: 1
+    awg: 20
+    min_bend_mm: { static: 14.3 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.070 in = 1.78 mm is the nominal overall diameter of the stranded wire (10/30 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: ul1007-18awg
+    name: "Hook-up wire, UL1007 PVC, 18 AWG (16/30 stranded)"
+    family: hookup_wire
+    manufacturer: "Remington Industries"
+    section: { shape: round, od_mm: 2.03 }
+    conductors: 1
+    awg: 18
+    min_bend_mm: { static: 16.3 }
+    flex: static
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.remingtonindustries.com/content/UL1007%20Hook%20Up%20Wire%20Data%20Sheet.pdf
+    note: "OD 0.080 in = 2.03 mm is the nominal overall diameter of the stranded wire (16/30 strands), from the Remington UL1007 data sheet (insulation 0.015 in, tinned copper, 300 V, 105 C). The data sheet gives no bend radius; static = 8 x OD by the library rule (see docs/CABLES.md). No dynamic value: plain PVC wire is not rated for repeated flexing."
+
+  - id: silicone-30awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 30 AWG (7/38 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/30"
+    section: { shape: round, od_mm: 1.1 }
+    conductors: 1
+    awg: 30
+    min_bend_mm: { static: 8.8, dynamic: 13.2 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.043 in / 1.1 mm, nominal silicone wall 0.40 mm, 7/38 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-28awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 28 AWG (7/36 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/28"
+    section: { shape: round, od_mm: 1.18 }
+    conductors: 1
+    awg: 28
+    min_bend_mm: { static: 9.5, dynamic: 14.2 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.046 in / 1.18 mm, nominal silicone wall 0.40 mm, 7/36 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-26awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 26 AWG (7/34 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/26"
+    section: { shape: round, od_mm: 1.28 }
+    conductors: 1
+    awg: 26
+    min_bend_mm: { static: 10.3, dynamic: 15.4 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.050 in / 1.28 mm, nominal silicone wall 0.40 mm, 7/34 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-24awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 24 AWG (7/32 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/24"
+    section: { shape: round, od_mm: 1.41 }
+    conductors: 1
+    awg: 24
+    min_bend_mm: { static: 11.3, dynamic: 17.0 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.056 in / 1.41 mm, nominal silicone wall 0.40 mm, 7/32 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-22awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 22 AWG (17/34 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/22"
+    section: { shape: round, od_mm: 1.56 }
+    conductors: 1
+    awg: 22
+    min_bend_mm: { static: 12.5, dynamic: 18.8 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.061 in / 1.56 mm, nominal silicone wall 0.40 mm, 17/34 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-20awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 20 AWG (21/33 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/20"
+    section: { shape: round, od_mm: 1.75 }
+    conductors: 1
+    awg: 20
+    min_bend_mm: { static: 14.0, dynamic: 21.0 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.069 in / 1.75 mm, nominal silicone wall 0.40 mm, 21/33 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-18awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 18 AWG (41/34 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/18"
+    section: { shape: round, od_mm: 1.98 }
+    conductors: 1
+    awg: 18
+    min_bend_mm: { static: 15.9, dynamic: 23.8 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.078 in / 1.98 mm, nominal silicone wall 0.40 mm, 41/34 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: silicone-16awg
+    name: "Hook-up wire, ultra-flexible silicone (UL 3132), 16 AWG (26/30 stranded)"
+    family: hookup_wire
+    manufacturer: "Daburn Electronics & Cable"
+    mpn: "2615/16"
+    section: { shape: round, od_mm: 2.3 }
+    conductors: 1
+    awg: 16
+    min_bend_mm: { static: 18.4, dynamic: 27.6 }
+    flex: flexible
+    interfaces: [power, gpio, analog, i2c, spi, uart, pwm]
+    confidence: derived
+    source: https://www.daburn.com/2615-Ultra-Flexible-Silicone-Rubber-Wire-UL-3132.aspx
+    note: "Nominal OD 0.091 in / 2.3 mm, nominal silicone wall 0.40 mm, 26/30 strands, -40 to +150 C, from the Daburn 2615 (UL 3132) table. Daburn states no bend radius; static 8 x OD and dynamic 12 x OD by the library rule. The wire is marketed as ultra-flexible; no cycle life is stated, so it is not marked continuous_flex."
+
+  - id: ffc-6way-0.5mm
+    name: "Flat flex cable, 6 way, 0.5 mm pitch (Wurth WR-FFC 687706050002)"
+    family: ffc
+    manufacturer: "Wurth Elektronik"
+    mpn: "687706050002"
+    section: { shape: flat, width_mm: 3.5, thickness_mm: 0.34 }
+    conductors: 6
+    pitch_mm: 0.5
+    min_bend_mm: { static: 2.8 }
+    flex: flexible
+    max_current_a: 0.5
+    connectors: [ffc-0.5]
+    interfaces: [other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/687706050002.pdf
+    note: "Width 3.5 mm and pitch 0.5 mm are stated (W = pitch total + 2 x 0.5 mm margin). Thickness is not stated as one number: the drawing gives conductor 0.05 mm, insulation 0.043 mm and a 0.225 mm support tape at the ends, and a drawing callout of 0.29 to 0.34 mm which is read here as the stiffened end thickness; the upper value 0.34 mm is used. The bare cable body is about 0.14 mm (0.05 + 2 x 0.043, a sum, not a stated value). Rated current 0.5 A max, 60 V. The sheet states only a 180 degree flex test, 20 times min, and no bend radius; static = 8 x 0.34 mm by the library rule."
+
+  - id: ffc-10way-0.5mm
+    name: "Flat flex cable, 10 way, 0.5 mm pitch (Wurth WR-FFC 687710100002)"
+    family: ffc
+    manufacturer: "Wurth Elektronik"
+    mpn: "687710100002"
+    section: { shape: flat, width_mm: 5.5, thickness_mm: 0.34 }
+    conductors: 10
+    pitch_mm: 0.5
+    min_bend_mm: { static: 2.8 }
+    flex: flexible
+    max_current_a: 0.5
+    connectors: [ffc-0.5]
+    interfaces: [other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/687710100002.pdf
+    note: "Width 5.5 mm and pitch 0.5 mm are stated (W = pitch total + 2 x 0.5 mm margin). Thickness is not stated as one number: the drawing gives conductor 0.05 mm, insulation 0.043 mm and a 0.225 mm support tape at the ends, and a drawing callout of 0.29 to 0.34 mm which is read here as the stiffened end thickness; the upper value 0.34 mm is used. The bare cable body is about 0.14 mm (0.05 + 2 x 0.043, a sum, not a stated value). Rated current 0.5 A max, 60 V. The sheet states only a 180 degree flex test, 20 times min, and no bend radius; static = 8 x 0.34 mm by the library rule."
+
+  - id: ffc-22way-0.5mm
+    name: "Flat flex cable, 22 way, 0.5 mm pitch (Wurth WR-FFC 687722100002)"
+    family: ffc
+    manufacturer: "Wurth Elektronik"
+    mpn: "687722100002"
+    section: { shape: flat, width_mm: 11.5, thickness_mm: 0.34 }
+    conductors: 22
+    pitch_mm: 0.5
+    min_bend_mm: { static: 2.8 }
+    flex: flexible
+    max_current_a: 0.5
+    connectors: [ffc-0.5]
+    interfaces: [other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/687722100002.pdf
+    note: "Width 11.5 mm and pitch 0.5 mm are stated (W = pitch total + 2 x 0.5 mm margin). Thickness is not stated as one number: the drawing gives conductor 0.05 mm, insulation 0.043 mm and a 0.225 mm support tape at the ends, and a drawing callout of 0.29 to 0.34 mm which is read here as the stiffened end thickness; the upper value 0.34 mm is used. The bare cable body is about 0.14 mm (0.05 + 2 x 0.043, a sum, not a stated value). Rated current 0.5 A max, 60 V. The sheet states only a 180 degree flex test, 20 times min, and no bend radius; static = 8 x 0.34 mm by the library rule."
+
+  - id: ffc-32way-0.5mm
+    name: "Flat flex cable, 32 way, 0.5 mm pitch (Wurth WR-FFC 687732100002)"
+    family: ffc
+    manufacturer: "Wurth Elektronik"
+    mpn: "687732100002"
+    section: { shape: flat, width_mm: 16.5, thickness_mm: 0.34 }
+    conductors: 32
+    pitch_mm: 0.5
+    min_bend_mm: { static: 2.8 }
+    flex: flexible
+    max_current_a: 0.5
+    connectors: [ffc-0.5]
+    interfaces: [other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/687732100002.pdf
+    note: "Width 16.5 mm and pitch 0.5 mm are stated (W = pitch total + 2 x 0.5 mm margin). Thickness is not stated as one number: the drawing gives conductor 0.05 mm, insulation 0.043 mm and a 0.225 mm support tape at the ends, and a drawing callout of 0.29 to 0.34 mm which is read here as the stiffened end thickness; the upper value 0.34 mm is used. The bare cable body is about 0.14 mm (0.05 + 2 x 0.043, a sum, not a stated value). Rated current 0.5 A max, 60 V. The sheet states only a 180 degree flex test, 20 times min, and no bend radius; static = 8 x 0.34 mm by the library rule."
+
+  - id: ffc-12way-1.0mm
+    name: "Flat flex cable, 12 way, 1.0 mm pitch (Wurth WR-FFC 686612119001, folded type)"
+    family: ffc
+    manufacturer: "Wurth Elektronik"
+    mpn: "686612119001"
+    section: { shape: flat, width_mm: 13.0, thickness_mm: 0.34 }
+    conductors: 12
+    pitch_mm: 1.0
+    min_bend_mm: { static: 2.8 }
+    flex: flexible
+    max_current_a: 1.0
+    connectors: [ffc-1.0]
+    interfaces: [other]
+    confidence: derived
+    source: https://we-online.com/catalog/datasheet/686612119001.pdf
+    note: "Width 13 mm, pitch 1.0 mm, rated current 1 A max are stated. This order code is the folded version (19 folds, 120 mm folded, 200 mm unfolded); the cross-section of the flat run is what is entered. Thickness 0.34 mm is the upper end of a 0.29 to 0.34 mm drawing callout read as the end thickness (conductor 0.035 mm, insulation 0.043 mm, support tape 0.225 mm). Only a 180 degree flex test, 20 times min, is stated; static = 8 x 0.34 mm by the library rule."
+
+  - id: ffc-15way-1.0mm
+    name: "Flat flex cable, 15 way, 1.0 mm pitch (Raspberry Pi standard camera cable)"
+    family: ffc
+    manufacturer: "Raspberry Pi Ltd"
+    mpn: "Standard camera cable 200 mm"
+    section: { shape: flat, width_mm: 16.0, thickness_mm: 0.309 }
+    conductors: 15
+    pitch_mm: 1.0
+    min_bend_mm: { static: 2.5 }
+    flex: flexible
+    connectors: [ffc-1.0]
+    interfaces: [mipi_csi]
+    confidence: derived
+    source: https://pip-assets.raspberrypi.com/categories/652-raspberry-pi-camera-module-2/documents/RP-008146-DS-1-standard-camera-cable-200mm-reference-drawing.pdf
+    note: "From the Raspberry Pi reference drawing RP-008146: 15 ways, pitch 1.000 mm, width 16.000 +/-0.10 mm, contact header thickness 0.309 mm (used as the thickness, the thickest stated figure), conductor 0.027 mm, insulation 0.055 mm (not stated whether per side). The drawing gives no bend radius; static = 8 x 0.309 mm by the library rule."
+
+  - id: ribbon-10way-1.27mm
+    name: "Flat ribbon cable, 10 way, 1.27 mm pitch, 28 AWG (Wurth WR-CAB 63911015521CAB)"
+    family: ribbon
+    manufacturer: "Wurth Elektronik"
+    mpn: "63911015521CAB"
+    section: { shape: flat, width_mm: 12.7, thickness_mm: 0.9 }
+    conductors: 10
+    pitch_mm: 1.27
+    awg: 28
+    min_bend_mm: { static: 7.2 }
+    flex: static
+    max_current_a: 1.0
+    interfaces: [gpio, spi, i2c, uart, other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/63911015521CAB.pdf
+    note: "Width 12.7 mm (dimension L on the drawing) and thickness 0.9 +/-0.10 mm from the drawing, 28 AWG 7/0.13 mm tinned copper, PVC, UL 2651, 300 V, 105 C, rated current 1 A max. The sheet gives no bend radius; static = 8 x 0.9 mm by the library rule, bending across the thickness only."
+
+  - id: ribbon-20way-1.27mm
+    name: "Flat ribbon cable, 20 way, 1.27 mm pitch, 28 AWG (Wurth WR-CAB 63912015521CAB)"
+    family: ribbon
+    manufacturer: "Wurth Elektronik"
+    mpn: "63912015521CAB"
+    section: { shape: flat, width_mm: 25.4, thickness_mm: 0.9 }
+    conductors: 20
+    pitch_mm: 1.27
+    awg: 28
+    min_bend_mm: { static: 7.2 }
+    flex: static
+    max_current_a: 1.0
+    interfaces: [gpio, spi, i2c, uart, other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/63912015521CAB.pdf
+    note: "Width 25.4 mm (dimension L on the drawing) and thickness 0.9 +/-0.10 mm from the drawing, 28 AWG 7/0.13 mm tinned copper, PVC, UL 2651, 300 V, 105 C, rated current 1 A max. The sheet gives no bend radius; static = 8 x 0.9 mm by the library rule, bending across the thickness only."
+
+  - id: ribbon-40way-1.27mm
+    name: "Flat ribbon cable, 40 way, 1.27 mm pitch, 28 AWG (Wurth WR-CAB 63914015521CAB)"
+    family: ribbon
+    manufacturer: "Wurth Elektronik"
+    mpn: "63914015521CAB"
+    section: { shape: flat, width_mm: 50.8, thickness_mm: 0.9 }
+    conductors: 40
+    pitch_mm: 1.27
+    awg: 28
+    min_bend_mm: { static: 7.2 }
+    flex: static
+    max_current_a: 1.0
+    interfaces: [gpio, spi, i2c, uart, other]
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/63914015521CAB.pdf
+    note: "Width 50.8 mm (dimension L on the drawing) and thickness 0.9 +/-0.10 mm from the drawing, 28 AWG 7/0.13 mm tinned copper, PVC, UL 2651, 300 V, 105 C, rated current 1 A max. The sheet gives no bend radius; static = 8 x 0.9 mm by the library rule, bending across the thickness only."
+
+  - id: usb2-28awg-3.3mm
+    name: "USB 2.0 bulk cable, 28/28 AWG, shielded, 3.3 mm (L-com CBL-USB2-2828)"
+    family: usb
+    manufacturer: "L-com"
+    mpn: "CBL-USB2-2828"
+    section: { shape: round, od_mm: 3.3 }
+    conductors: 4
+    awg: 28
+    min_bend_mm: { static: 33.0 }
+    flex: static
+    interfaces: [usb2, power]
+    confidence: derived
+    source: https://l-com.com/images/downloadables/2D/CBL-USB2-2828-100_2D.pdf
+    note: "Jacket OD 3.3 +/-0.2 mm, 2 x 28 AWG pairs (data and power both 28 AWG), foil and braid shield, PVC, AWM 2725. The maker states min. bend radius 10 x OD = 33 mm (its own multiple, not the library rule), with no static or dynamic split; used as the static value. Part number read from the drawing's item list. Cable only, no connectors."
+
+  - id: usb2-28-24awg-highflex-4.5mm
+    name: "USB 2.0 bulk cable, 28/24 AWG, shielded, high-flex PU, 4.5 mm (L-com BU2HF-2824BK)"
+    family: usb
+    manufacturer: "L-com"
+    mpn: "BU2HF-2824BK"
+    section: { shape: round, od_mm: 4.5 }
+    conductors: 4
+    awg: 24
+    min_bend_mm: { static: 45.0 }
+    flex: flexible
+    interfaces: [usb2, power]
+    confidence: derived
+    source: https://www.l-com.com/Images/Downloadables/2D/BU2HF-2824BK-500F_2D.pdf
+    note: "Jacket OD 4.5 +/-0.15 mm, 28 AWG data pair and 24 AWG power pair, PU jacket, 30 V. The maker states min. bend radius 10 x OD = 45 mm (its own multiple) and a bending test of 10,000 cycles min at R = 12.7 mm, 90 degrees; the larger 45 mm is used as the static value and no dynamic value is entered because the maker gives no dynamic radius. Called high-flex by the maker, with no continuous-flex claim, so flex is flexible. Cable only."
+
+  - id: cat6-28awg-slim
+    name: "Cat6 U/UTP slim patch cord, 28 AWG, 3.8 mm (FS.com)"
+    family: ethernet
+    manufacturer: "FS.com"
+    section: { shape: round, od_mm: 3.8 }
+    conductors: 8
+    awg: 28
+    min_bend_mm: { static: 29.0 }
+    flex: static
+    connectors: [rj45]
+    interfaces: [ethernet]
+    confidence: datasheet
+    source: https://img-en.fs.com//file/datasheet/cat6-28awg-slim-patch-cables.pdf
+    note: "OD 3.8 +/-0.2 mm, 4 twisted pairs of 28 AWG (7/0.12 mm), PVC CM jacket. The datasheet states min. bend radius 2.7 +/-0.2 cm; the upper tolerance, 29 mm, is entered as the more conservative value. The sheet does not split static and dynamic, so it is entered as static only."
+
+  - id: belden-9842-rs485
+    name: "RS-485 / CAN-type cable, 2 pair 24 AWG shielded, 8.64 mm (Belden 9842)"
+    family: twisted_pair
+    manufacturer: "Belden"
+    mpn: "9842"
+    section: { shape: round, od_mm: 8.64 }
+    conductors: 4
+    awg: 24
+    min_bend_mm: { static: 89.0 }
+    flex: static
+    max_current_a: 2.1
+    mass_g_per_m: 73.0
+    interfaces: [rs485]
+    confidence: datasheet
+    source: https://catalog.belden.com/techdata/EN/9842_techdata.pdf
+    note: "Jacket OD 0.340 in (8.64 mm) +/-0.025 in, 2 pairs 24 AWG 7x32 tinned copper, 120 ohm, foil plus 90 percent braid, PVC, -30 to +80 C. The datasheet states min. bend radius 3.5 in (89 mm) for both stationary and installation; no dynamic value. Current 2.1 A per conductor at 25 C and weight 73 kg/km are as stated. Belden lists RS-485 as the use; CAN is not named. Large for a robot hand."
+
+  - id: rg174-belden-8216
+    name: "Coax RG174, 50 ohm, 2.79 mm (Belden 8216)"
+    family: coax
+    manufacturer: "Belden"
+    mpn: "8216"
+    section: { shape: round, od_mm: 2.79 }
+    conductors: 1
+    awg: 26
+    min_bend_mm: { static: 25.4 }
+    flex: static
+    mass_g_per_m: 11.9
+    connectors: [sma]
+    interfaces: [other]
+    confidence: datasheet
+    source: https://media.e-sonic.com/productfiles/mf-bl/8216_techdata.pdf
+    note: "Jacket nominal 0.11 in (2.79 mm), 26 AWG 7x34 copper-covered steel centre, 90 percent tinned copper braid, PVC. Min. bend radius / minor axis 1 in (25.4 mm), not labelled static or dynamic. Weight 8 lb per 1000 ft converted to 11.9 g/m. This is a distributor-hosted copy of the Belden sheet; a search snippet of Belden's current product page (not opened) gave 1.1 in (28 mm), the more conservative figure, so check the live page. The connectors field is a typical use, not stated."
+
+  - id: rg178-lapp-2170002
+    name: "Coax RG178 B/U, 50 ohm, 1.81 mm (Lapp 2170002)"
+    family: coax
+    manufacturer: "Lapp"
+    mpn: "2170002"
+    section: { shape: round, od_mm: 1.81 }
+    conductors: 1
+    awg: 30
+    min_bend_mm: { static: 10.9, dynamic: 18.1 }
+    flex: flexible
+    connectors: [sma]
+    interfaces: [other]
+    confidence: derived
+    source: https://media.lappcdn.com/6/633/63339/e8ca584bae7c492c84394e4e2ff520c5.pdf
+    note: "FEP jacket OD 1.81 +/-0.13 mm (up to 1.94 mm), 7x0.102 mm silver-plated copper-covered steel centre, PTFE insulation, 96 percent braid, M17/93-RG178. Lapp states min. bend radius 6 x OD fixed and 10 x OD occasional flexing; those multiples times the nominal OD give 10.9 and 18.1 mm. Occasional flexing is not continuous flex. The connectors field is a typical use, not stated."
+
+  - id: microcoax-1.13mm
+    name: "Micro-coax 1.13 mm, 50 ohm, 32 AWG centre (Siretta, as on MHF/U.FL pigtails)"
+    family: coax
+    manufacturer: "Siretta"
+    mpn: "ASMGxxxXD113S11 cable"
+    section: { shape: round, od_mm: 1.13 }
+    conductors: 1
+    awg: 32
+    min_bend_mm: { static: 5.0 }
+    flex: static
+    connectors: [u.fl]
+    interfaces: [other]
+    confidence: datasheet
+    source: https://docs.rs-online.com/d3d1/A700000015827780.pdf
+    note: "Grey FEP jacket 1.13 +/-0.1 mm, 7/0.085 mm silver-coated copper centre (32 AWG), 90 percent braid, 105 C, 30 V. The datasheet states min. bend radius 5.0 mm without a static or dynamic split. Search snippets (pages not opened) gave 4.5 mm for a Delock 1.13 mm cable and 6.8 mm for a Samtec assembly; the Siretta figure is the one verified."
+
+  - id: igus-cf9-ul-02-02
+    name: "igus chainflex CF9.UL.02.02, 2 x 0.25 mm2 control cable, TPE, 5.0 mm"
+    family: multicore
+    manufacturer: "igus"
+    mpn: "CF9.UL.02.02"
+    section: { shape: round, od_mm: 5.0 }
+    conductors: 2
+    awg: 24
+    min_bend_mm: { static: 15.0, dynamic: 25.0 }
+    flex: continuous_flex
+    mass_g_per_m: 24.0
+    interfaces: [power, gpio, analog]
+    confidence: derived
+    source: https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/4905/CF9.UL.pdf
+    note: "Max OD 5.0 mm, weight 24 kg/km. igus states min. bend radius 3 x d fixed, 4 x d flexible, 5 x d e-chain linear (at the middle temperature range; larger factors apply at low and high temperatures); entered static = 3 x 5.0 = 15 mm and dynamic = 5 x 5.0 = 25 mm using the maker's multiples. Torsion: +/-90 degrees over 1 m, class 2 (not a robot/torsion cable). 5.0 mm is a maximum diameter, so the real cable may be slightly smaller. Conductor gauge 24 AWG is the nearest to 0.25 mm2 and is not stated by igus."
+
+  - id: igus-cf211-1pair
+    name: "igus chainflex CF211, 1 pair x 0.25 mm2 shielded data cable, PVC, 5.0 mm"
+    family: twisted_pair
+    manufacturer: "igus"
+    mpn: "CF211-02-01-02"
+    section: { shape: round, od_mm: 5.0 }
+    conductors: 2
+    awg: 24
+    min_bend_mm: { static: 20.0, dynamic: 37.5 }
+    flex: continuous_flex
+    mass_g_per_m: 33.0
+    interfaces: [can, rs485, other]
+    confidence: derived
+    source: https://www.cableorganizer.com/cdn/shop/files/chainflex_CF211_USen.pdf
+    note: "Max OD 5.0 mm, weight 33 kg/km, 24 AWG listed, one shielded twisted pair, PVC, 300 V. igus states min. bend radius 4 x d fixed, 6 x d flexible, 7.5 x d e-chain linear (middle temperature range; 10 to 11 x d at low and high temperature for guaranteed cycles); entered static = 4 x 5.0 = 20 mm and dynamic = 7.5 x 5.0 = 37.5 mm. The sheet shows a torsion scale but this entry does not rely on it. igus lists it as a data cable; it does not name CAN or RS-485, which are typical uses."
+
+  - id: thin-wire-28awg
+    name: "Thin-wall hook-up wire, 28 AWG (UL1571 class, generic)"
+    family: hookup_wire
+    section: { shape: round, od_mm: 0.8 }
+    conductors: 1
+    awg: 28
+    min_bend_mm: { static: 6.4 }
+    flex: static
+    interfaces: [power, gpio, i2c, uart, can]
+    confidence: generic
+    source: https://www.pololu.com/product/5523
+    note: "Generic thin-wall wire. No data sheet with the insulation OD of UL1571-class wire could be opened (Misumi and Buerklin pages returned 403; their search snippets, not opened, give 0.85 to 0.88 mm for 28 AWG, more than JST's limit). The OD entered is the largest insulation OD that JST states for the small crimp contacts this gauge goes into: 0.8 mm, JST SH sheet (28 to 32 AWG contact, 0.4 to 0.8 mm). Pololu's JST SH-style lead (product 5523, page opened) states 28 AWG conforming to UL 1571 and fits that contact. A real wire may be thinner. Bend radius 8 x OD by the library rule."
+
+  - id: thin-wire-30awg
+    name: "Thin-wall hook-up wire, 30 AWG (UL1571 class, generic)"
+    family: hookup_wire
+    section: { shape: round, od_mm: 0.8 }
+    conductors: 1
+    awg: 30
+    min_bend_mm: { static: 6.4 }
+    flex: static
+    interfaces: [power, gpio, i2c, uart, can]
+    confidence: generic
+    source: https://www.jst-mfg.com/product/pdf/eng/eSH.pdf
+    note: "Generic thin-wall wire. No data sheet with the insulation OD of UL1571-class wire could be opened (Misumi and Buerklin pages returned 403; their search snippets, not opened, give 0.85 to 0.88 mm for 28 AWG, more than JST's limit). The OD entered is the largest insulation OD that JST states for the small crimp contacts this gauge goes into: 0.8 mm, JST SH sheet (28 to 32 AWG contact, 0.4 to 0.8 mm); the JST ZH contact for 32 to 28 AWG takes 0.5 to 0.9 mm. A real wire may be thinner. Bend radius 8 x OD by the library rule."
+
+  - id: thin-wire-26awg
+    name: "Thin-wall hook-up wire, 26 AWG (UL1571 class, generic)"
+    family: hookup_wire
+    section: { shape: round, od_mm: 1.0 }
+    conductors: 1
+    awg: 26
+    min_bend_mm: { static: 8.0 }
+    flex: static
+    interfaces: [power, gpio, i2c, uart, can]
+    confidence: generic
+    source: https://www.jst-mfg.com/product/pdf/eng/eGH.pdf
+    note: "Generic thin-wall wire. No data sheet with the insulation OD of UL1571-class wire could be opened (Misumi and Buerklin pages returned 403; their search snippets, not opened, give 0.85 to 0.88 mm for 28 AWG, more than JST's limit). The OD entered is the largest insulation OD that JST states for the small crimp contacts this gauge goes into: 1.0 mm, JST GH sheet (30 to 26 AWG contact, 0.76 to 1.0 mm); the JST ZH 28 to 26 AWG contact takes 0.8 to 1.1 mm. A real wire may be thinner. Bend radius 8 x OD by the library rule."
+
+  - id: dupont-jumper-28awg
+    name: "Dupont jumper lead, 28 AWG, 2.54 mm ends (Adafruit premium F/M, F/F, M/M)"
+    family: jumper
+    manufacturer: "Adafruit"
+    mpn: "825"
+    section: { shape: round, od_mm: 1.2 }
+    conductors: 1
+    awg: 28
+    min_bend_mm: { static: 9.6 }
+    flex: static
+    connectors: [pin-header-2.54, pin-socket-2.54, pin-header-2.54-2row, pin-socket-2.54-2row, servo-3pin]
+    interfaces: [gpio, i2c, spi, uart, pwm, analog, power]
+    confidence: generic
+    source: https://www.adafruit.com/products/825
+    note: "Adafruit page (opened): 'each wire is 28 AWG (7 strands @ 36 AWG)', 0.1 in male or female contacts, about 75 mm. The page gives no insulation OD, so 1.2 mm is the OD of Pololu's 28 AWG stranded hook-up wire (product 2616 specs, opened), a different product used as a typical value. Female/female, male/female and male/male leads use the same wire. Bend radius 8 x OD by the library rule."
+
+  - id: dupont-jumper-26awg
+    name: "Dupont jumper lead, 26 AWG, 2.54 mm ends (Pololu premium)"
+    family: jumper
+    manufacturer: "Pololu"
+    section: { shape: round, od_mm: 1.27 }
+    conductors: 1
+    awg: 26
+    min_bend_mm: { static: 10.2 }
+    flex: static
+    connectors: [pin-header-2.54, pin-socket-2.54, pin-header-2.54-2row, pin-socket-2.54-2row, servo-3pin]
+    interfaces: [gpio, i2c, spi, uart, pwm, analog, power]
+    confidence: generic
+    source: https://www.pololu.com/product/1710/specs
+    note: "Pololu premium jumper wire page (opened): 26 AWG stranded, 6 in. The page gives no insulation OD, so 1.27 mm is the OD of 26 AWG UL1007 wire from the Remington sheet already used in this library (ul1007-26awg), as a typical value. Bend radius 8 x OD by the library rule."
+
+  - id: qwiic-cable-4x28awg
+    name: "Qwiic / STEMMA QT cable, 4 x 28 AWG, JST SH plugs (Pololu 5523 class)"
+    family: harness
+    manufacturer: "Pololu"
+    mpn: "5523"
+    section: { shape: round, od_mm: 1.93 }
+    conductors: 4
+    awg: 28
+    min_bend_mm: { static: 15.5 }
+    flex: static
+    max_current_a: 1.0
+    connectors: [jst-sh]
+    interfaces: [i2c, power]
+    confidence: generic
+    source: https://www.pololu.com/product/5523
+    note: "Pololu page (opened): 4 conductors, 28 AWG conforming to UL 1571, JST SH-type 1 mm 4-pin both ends, twisted, 1 A and 50 V. No OD is stated: the four wires are taken as 0.8 mm each (thin-wire-28awg) and the round OD is the enclosing circle of four equal circles, 2.414 x 0.8 = 1.93 mm. Modelled as ONE harness with per_contact termination in the JST SH entry, so cableFit checks 4 conductors against the ways and the 28 AWG against the contact range. SparkFun's Qwiic pages do not state a gauge. Bend radius 8 x OD by the library rule."
+
+  - id: servo-lead-3x22awg
+    name: "Servo extension lead, 3 x 22 AWG flat, JR/Futaba style (Pololu 2185 class)"
+    family: harness
+    manufacturer: "Pololu"
+    mpn: "2185"
+    section: { shape: flat, width_mm: 4.71, thickness_mm: 1.57 }
+    conductors: 3
+    awg: 22
+    min_bend_mm: { static: 12.6 }
+    flex: flexible
+    connectors: [servo-3pin, pin-header-2.54]
+    interfaces: [pwm, power, uart]
+    confidence: generic
+    source: https://www.pololu.com/product/2185/specs
+    note: "Pololu page (opened): flat, three 22 AWG wires of 60 strands each, 0.1 in connectors, JR/Futaba compatible. Width and thickness are not stated: the wire OD is taken as 1.57 mm, that of 22 AWG UL1007 wire in the Remington sheet used in this library (ul1007-22awg), so the flat lead is 3 x 1.57 wide and 1.57 thick. Bend radius 8 x thickness by the library rule."

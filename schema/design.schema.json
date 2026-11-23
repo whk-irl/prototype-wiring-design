@@ -1,0 +1,1952 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "type": "number",
+      "const": 1
+    },
+    "meta": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "name": {
+          "default": "Untitled",
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scene": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "sources": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "step",
+                  "iges",
+                  "glb",
+                  "gltf",
+                  "stl",
+                  "obj",
+                  "urdf",
+                  "builtin"
+                ]
+              },
+              "uri": {
+                "type": "string",
+                "minLength": 1
+              },
+              "mm_per_unit": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "uri",
+              "mm_per_unit"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "links": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "user_defined": {
+                "type": "boolean",
+                "const": true
+              },
+              "meshes": {
+                "default": [],
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+                    },
+                    "source": {
+                      "type": "string",
+                      "maxLength": 128,
+                      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+                    },
+                    "node": {
+                      "type": "string"
+                    },
+                    "pose": {
+                      "type": "object",
+                      "properties": {
+                        "p_mm": {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "items": false,
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "q": {
+                          "type": "array",
+                          "prefixItems": [
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "number"
+                            }
+                          ],
+                          "items": false,
+                          "minItems": 4,
+                          "maxItems": 4
+                        }
+                      },
+                      "required": [
+                        "p_mm",
+                        "q"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "tri_count": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "source",
+                    "node",
+                    "tri_count"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "joints": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "fixed",
+                  "revolute",
+                  "continuous",
+                  "prismatic"
+                ]
+              },
+              "parent": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "child": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "p_mm": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "q": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "p_mm",
+                  "q"
+                ],
+                "additionalProperties": false
+              },
+              "axis": {
+                "default": [
+                  0,
+                  0,
+                  1
+                ],
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "limit": {
+                "type": "object",
+                "properties": {
+                  "lower": {
+                    "type": "number"
+                  },
+                  "upper": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "lower",
+                  "upper"
+                ],
+                "additionalProperties": false
+              },
+              "value": {
+                "default": 0,
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "type",
+              "parent",
+              "child",
+              "origin"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "zones": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "mount_allowed",
+              "keep_out"
+            ]
+          },
+          "link": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "mesh": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "triangles": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "link",
+          "mesh"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "parts": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "controller",
+              "sensor",
+              "driver",
+              "actuator",
+              "power",
+              "camera",
+              "display",
+              "other"
+            ]
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "mpn": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "tags": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "body": {
+            "type": "object",
+            "properties": {
+              "size_mm": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "board": {
+                "type": "object",
+                "properties": {
+                  "z_mm": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "thickness_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "z_mm",
+                  "thickness_mm"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "size_mm"
+            ],
+            "additionalProperties": false
+          },
+          "model": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string",
+                "minLength": 1
+              },
+              "pose": {
+                "type": "object",
+                "properties": {
+                  "p_mm": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  "q": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                },
+                "required": [
+                  "p_mm",
+                  "q"
+                ],
+                "additionalProperties": false
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "triangles": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "license": {
+                "type": "string",
+                "minLength": 1
+              },
+              "attribution": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source": {
+                "type": "string",
+                "format": "uri"
+              },
+              "changes": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "uri"
+            ],
+            "additionalProperties": false
+          },
+          "mounting_holes": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "p_mm": {
+                  "type": "array",
+                  "prefixItems": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ],
+                  "items": false,
+                  "minItems": 2,
+                  "maxItems": 2
+                },
+                "d_mm": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "p_mm",
+                "d_mm"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "ports": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "connector": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "ways": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "pose": {
+                  "type": "object",
+                  "properties": {
+                    "p_mm": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "q": {
+                      "type": "array",
+                      "prefixItems": [
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "number"
+                        }
+                      ],
+                      "items": false,
+                      "minItems": 4,
+                      "maxItems": 4
+                    }
+                  },
+                  "required": [
+                    "p_mm",
+                    "q"
+                  ],
+                  "additionalProperties": false
+                },
+                "interfaces": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "power",
+                      "i2c",
+                      "spi",
+                      "uart",
+                      "can",
+                      "rs485",
+                      "usb2",
+                      "usb3",
+                      "ethernet",
+                      "mipi_csi",
+                      "mipi_dsi",
+                      "analog",
+                      "gpio",
+                      "pwm",
+                      "motor_phase",
+                      "encoder",
+                      "other"
+                    ]
+                  }
+                },
+                "note": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "connector",
+                "pose",
+                "interfaces"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "datasheet",
+              "measured",
+              "generic"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "format": "uri"
+          },
+          "custom": {
+            "type": "boolean",
+            "const": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "category",
+          "body",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "cable_types": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "family": {
+            "type": "string",
+            "enum": [
+              "hookup_wire",
+              "jumper",
+              "ribbon",
+              "ffc",
+              "multicore",
+              "twisted_pair",
+              "coax",
+              "usb",
+              "ethernet",
+              "harness"
+            ]
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "mpn": {
+            "type": "string"
+          },
+          "section": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "shape": {
+                    "type": "string",
+                    "const": "round"
+                  },
+                  "od_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "shape",
+                  "od_mm"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "shape": {
+                    "type": "string",
+                    "const": "flat"
+                  },
+                  "width_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "thickness_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "shape",
+                  "width_mm",
+                  "thickness_mm"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "conductors": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "pitch_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "awg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 50
+          },
+          "min_bend_mm": {
+            "type": "object",
+            "properties": {
+              "static": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "dynamic": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            },
+            "required": [
+              "static"
+            ],
+            "additionalProperties": false
+          },
+          "flex": {
+            "type": "string",
+            "enum": [
+              "static",
+              "flexible",
+              "continuous_flex",
+              "torsion"
+            ]
+          },
+          "max_current_a": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "mass_g_per_m": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "connectors": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "interfaces": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "power",
+                "i2c",
+                "spi",
+                "uart",
+                "can",
+                "rs485",
+                "usb2",
+                "usb3",
+                "ethernet",
+                "mipi_csi",
+                "mipi_dsi",
+                "analog",
+                "gpio",
+                "pwm",
+                "motor_phase",
+                "encoder",
+                "other"
+              ]
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "datasheet",
+              "measured",
+              "derived",
+              "generic"
+            ]
+          },
+          "source": {
+            "type": "string",
+            "format": "uri"
+          },
+          "note": {
+            "type": "string"
+          },
+          "custom": {
+            "type": "boolean",
+            "const": true
+          },
+          "spec": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "wire"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "manufacturer": {
+                    "type": "string"
+                  },
+                  "mpn": {
+                    "type": "string"
+                  },
+                  "basis": {
+                    "default": "measured",
+                    "type": "string",
+                    "enum": [
+                      "datasheet",
+                      "measured"
+                    ]
+                  },
+                  "flexing": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "bend_static_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "bend_dynamic_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "max_current_a": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "mass_g_per_m": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "connectors": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "interfaces": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "power",
+                        "i2c",
+                        "spi",
+                        "uart",
+                        "can",
+                        "rs485",
+                        "usb2",
+                        "usb3",
+                        "ethernet",
+                        "mipi_csi",
+                        "mipi_dsi",
+                        "analog",
+                        "gpio",
+                        "pwm",
+                        "motor_phase",
+                        "encoder",
+                        "other"
+                      ]
+                    }
+                  },
+                  "source": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "awg": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 50
+                  },
+                  "od_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "wall_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 10
+                  }
+                },
+                "required": [
+                  "kind",
+                  "awg"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "round_cable"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "manufacturer": {
+                    "type": "string"
+                  },
+                  "mpn": {
+                    "type": "string"
+                  },
+                  "basis": {
+                    "default": "measured",
+                    "type": "string",
+                    "enum": [
+                      "datasheet",
+                      "measured"
+                    ]
+                  },
+                  "flexing": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "bend_static_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "bend_dynamic_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "max_current_a": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "mass_g_per_m": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "connectors": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "interfaces": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "power",
+                        "i2c",
+                        "spi",
+                        "uart",
+                        "can",
+                        "rs485",
+                        "usb2",
+                        "usb3",
+                        "ethernet",
+                        "mipi_csi",
+                        "mipi_dsi",
+                        "analog",
+                        "gpio",
+                        "pwm",
+                        "motor_phase",
+                        "encoder",
+                        "other"
+                      ]
+                    }
+                  },
+                  "source": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "family": {
+                    "default": "multicore",
+                    "type": "string",
+                    "enum": [
+                      "multicore",
+                      "twisted_pair",
+                      "coax",
+                      "usb",
+                      "ethernet"
+                    ]
+                  },
+                  "conductors": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 200
+                  },
+                  "od_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 100
+                  },
+                  "awg": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 50
+                  }
+                },
+                "required": [
+                  "kind",
+                  "conductors",
+                  "od_mm"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "ribbon"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "manufacturer": {
+                    "type": "string"
+                  },
+                  "mpn": {
+                    "type": "string"
+                  },
+                  "basis": {
+                    "default": "measured",
+                    "type": "string",
+                    "enum": [
+                      "datasheet",
+                      "measured"
+                    ]
+                  },
+                  "flexing": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "bend_static_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "bend_dynamic_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "max_current_a": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "mass_g_per_m": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "connectors": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "interfaces": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "power",
+                        "i2c",
+                        "spi",
+                        "uart",
+                        "can",
+                        "rs485",
+                        "usb2",
+                        "usb3",
+                        "ethernet",
+                        "mipi_csi",
+                        "mipi_dsi",
+                        "analog",
+                        "gpio",
+                        "pwm",
+                        "motor_phase",
+                        "encoder",
+                        "other"
+                      ]
+                    }
+                  },
+                  "source": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "ways": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 200
+                  },
+                  "pitch_mm": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 25
+                  },
+                  "thickness_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 10
+                  },
+                  "awg": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 50
+                  }
+                },
+                "required": [
+                  "kind",
+                  "ways",
+                  "pitch_mm"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "flat_flex"
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "manufacturer": {
+                    "type": "string"
+                  },
+                  "mpn": {
+                    "type": "string"
+                  },
+                  "basis": {
+                    "default": "measured",
+                    "type": "string",
+                    "enum": [
+                      "datasheet",
+                      "measured"
+                    ]
+                  },
+                  "flexing": {
+                    "default": false,
+                    "type": "boolean"
+                  },
+                  "bend_static_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "bend_dynamic_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 5000
+                  },
+                  "max_current_a": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "mass_g_per_m": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "connectors": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "interfaces": {
+                    "default": [],
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "power",
+                        "i2c",
+                        "spi",
+                        "uart",
+                        "can",
+                        "rs485",
+                        "usb2",
+                        "usb3",
+                        "ethernet",
+                        "mipi_csi",
+                        "mipi_dsi",
+                        "analog",
+                        "gpio",
+                        "pwm",
+                        "motor_phase",
+                        "encoder",
+                        "other"
+                      ]
+                    }
+                  },
+                  "source": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "construction": {
+                    "type": "string",
+                    "enum": [
+                      "ffc",
+                      "fpc"
+                    ]
+                  },
+                  "ways": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 200
+                  },
+                  "pitch_mm": {
+                    "type": "number",
+                    "minimum": 0.1,
+                    "maximum": 25
+                  },
+                  "thickness_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 10
+                  },
+                  "width_mm": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 500
+                  },
+                  "layers": {
+                    "default": 1,
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 8
+                  }
+                },
+                "required": [
+                  "kind",
+                  "construction",
+                  "ways",
+                  "pitch_mm"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "family",
+          "section",
+          "conductors",
+          "min_bend_mm",
+          "flex",
+          "confidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "components": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "part": {
+            "type": "string",
+            "minLength": 1
+          },
+          "link": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "pose": {
+            "type": "object",
+            "properties": {
+              "p_mm": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "q": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "items": false,
+                "minItems": 4,
+                "maxItems": 4
+              }
+            },
+            "required": [
+              "p_mm",
+              "q"
+            ],
+            "additionalProperties": false
+          },
+          "zone": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "part",
+          "link",
+          "pose"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "connections": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "port": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              }
+            },
+            "required": [
+              "component",
+              "port"
+            ],
+            "additionalProperties": false
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "port": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              }
+            },
+            "required": [
+              "component",
+              "port"
+            ],
+            "additionalProperties": false
+          },
+          "interface": {
+            "type": "string",
+            "enum": [
+              "power",
+              "i2c",
+              "spi",
+              "uart",
+              "can",
+              "rs485",
+              "usb2",
+              "usb3",
+              "ethernet",
+              "mipi_csi",
+              "mipi_dsi",
+              "analog",
+              "gpio",
+              "pwm",
+              "motor_phase",
+              "encoder",
+              "other"
+            ]
+          },
+          "current_a": {
+            "type": "number",
+            "minimum": 0
+          },
+          "voltage_v": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "id",
+          "from",
+          "to",
+          "interface"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "cables": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "connections": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            }
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "count": {
+            "default": 1,
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "twisted": {
+            "default": false,
+            "type": "boolean"
+          },
+          "lay_length_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "sleeve_wall_mm": {
+            "default": 0,
+            "type": "number",
+            "minimum": 0
+          },
+          "bend_override_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "length_mm": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "reasons": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "routes": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "cable": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "from": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "port": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              }
+            },
+            "required": [
+              "component",
+              "port"
+            ],
+            "additionalProperties": false
+          },
+          "to": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              "port": {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              }
+            },
+            "required": [
+              "component",
+              "port"
+            ],
+            "additionalProperties": false
+          },
+          "segments": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "string",
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+                },
+                "points_mm": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 3,
+                    "maxItems": 3
+                  }
+                },
+                "normals": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "prefixItems": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "number"
+                      }
+                    ],
+                    "items": false,
+                    "minItems": 3,
+                    "maxItems": 3
+                  }
+                },
+                "ties": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "required": [
+                "link",
+                "points_mm"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "crossings": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "joint": {
+                  "type": "string",
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+                },
+                "strategy": {
+                  "type": "string",
+                  "enum": [
+                    "service_loop",
+                    "axial",
+                    "clock_spring_fpc",
+                    "hinge_fpc",
+                    "slip_ring",
+                    "drag_chain",
+                    "rolling_loop"
+                  ]
+                },
+                "slack_mm": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "joint",
+                "strategy",
+                "slack_mm"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "cable"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "fixings": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "route": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "at_mm": {
+            "type": "number",
+            "minimum": 0
+          },
+          "part": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "route",
+          "at_mm",
+          "part"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "mounts": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "component": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "case",
+              "bracket",
+              "standoffs"
+            ]
+          },
+          "params": {
+            "default": {},
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {
+              "$ref": "#/$defs/__schema0"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "component",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "checks": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rule": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "warn",
+              "fail"
+            ]
+          },
+          "value": {
+            "type": "number"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule",
+          "target",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        },
+        {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/__schema0"
+          }
+        }
+      ]
+    }
+  }
+}

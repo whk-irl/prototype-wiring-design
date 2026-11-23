@@ -1,0 +1,12 @@
+{
+  // Type-checks src/core with no DOM and no Node types. If this fails, core has
+  // picked up a browser or Node dependency: the core must run in a Web Worker
+  // and in plain Node alike (docs/PLAN.md, design principle 4).
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "types": []
+  },
+  "include": ["src/core"],
+  "exclude": ["src/core/**/*.test.ts"]
+}

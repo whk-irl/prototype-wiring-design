@@ -1,0 +1,33 @@
+{
+  "links": 1,
+  "joints": 0,
+  "meshes": 12,
+  "triangles": 2940,
+  "mesh_triangles": {
+    "arm-cad.base_plate": 12,
+    "arm-cad.pedestal": 608,
+    "arm-cad.turret": 420,
+    "arm-cad.shoulder_pin": 828,
+    "arm-cad.upper_arm": 228,
+    "arm-cad.elbow_pin": 204,
+    "arm-cad.forearm": 120,
+    "arm-cad.tool_plate": 120,
+    "arm-cad.screw_1": 100,
+    "arm-cad.screw_2": 100,
+    "arm-cad.screw_3": 100,
+    "arm-cad.screw_4": 100
+  },
+  "bbox_mm": {
+    "min": [
+      -60,
+      -60,
+      0
+    ],
+    "max": [
+      146.81161499023438,
+      91.47115325927734,
+      356.6477966308594
+    ]
+  },
+  "joint_list": []
+}

@@ -1,0 +1,61 @@
+{
+  "links": 5,
+  "joints": 4,
+  "meshes": 7,
+  "triangles": 956,
+  "mesh_triangles": {
+    "arm3.base_link.v0": 128,
+    "arm3.turret.v0": 12,
+    "arm3.upper_arm.v0": 12,
+    "arm3.upper_arm.v1": 128,
+    "arm3.forearm.v0": 128,
+    "arm3.forearm.v1": 536,
+    "arm3.finger.v0": 12
+  },
+  "bbox_mm": {
+    "min": [
+      -60,
+      -60,
+      0
+    ],
+    "max": [
+      86.08936353726673,
+      60,
+      466.9592339474453
+    ]
+  },
+  "joint_list": [
+    {
+      "name": "base_yaw",
+      "type": "revolute",
+      "limit": {
+        "lower": -2.9670597283903604,
+        "upper": 2.9670597283903604
+      }
+    },
+    {
+      "name": "shoulder",
+      "type": "revolute",
+      "limit": {
+        "lower": -1.2,
+        "upper": 1.9
+      }
+    },
+    {
+      "name": "elbow",
+      "type": "revolute",
+      "limit": {
+        "lower": -2,
+        "upper": 2
+      }
+    },
+    {
+      "name": "finger_slide",
+      "type": "prismatic",
+      "limit": {
+        "lower": 0,
+        "upper": 30
+      }
+    }
+  ]
+}

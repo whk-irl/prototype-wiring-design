@@ -1,0 +1,27 @@
+{
+  "links": 1,
+  "joints": 0,
+  "meshes": 6,
+  "triangles": 792,
+  "mesh_triangles": {
+    "chassis.plate": 12,
+    "chassis.motor_left": 192,
+    "chassis.wheel_left": 192,
+    "chassis.motor_right": 192,
+    "chassis.wheel_right": 192,
+    "chassis.battery": 12
+  },
+  "bbox_mm": {
+    "min": [
+      -100,
+      -105,
+      6.705522537231445e-7
+    ],
+    "max": [
+      100,
+      105,
+      66.5
+    ]
+  },
+  "joint_list": []
+}

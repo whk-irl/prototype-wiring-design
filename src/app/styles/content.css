@@ -1,0 +1,1600 @@
+/* Panel content: trees, joints, properties, lists, the part and cable pages, the comparison table. Older rules first, the redesign's shared patterns after them. */
+
+
+/* ---------------------------------------------------------------- tree */
+
+.tree-row {
+  display: flex;
+  align-items: center;
+  min-height: 22px;
+  padding-right: 6px;
+}
+
+.tree-row:hover {
+  background: var(--hover);
+}
+
+.tree-row.hovered {
+  background: var(--hover);
+}
+
+.tree-row.selected {
+  background: var(--accent-soft);
+}
+
+.twisty,
+.twisty-spacer {
+  width: 16px;
+  height: 18px;
+  min-height: 0;
+  flex: none;
+  padding: 0;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.twisty:hover:not(:disabled) {
+  background: none;
+}
+
+.tree-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  min-height: 20px;
+  padding: 1px 2px;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+.tree-label:hover:not(:disabled) {
+  background: none;
+}
+
+.tree-text {
+  min-width: 0;
+  flex: 0 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-detail {
+  margin-left: auto;
+  padding-left: 8px;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+  /* Gives way before the name does, so a narrow panel never scrolls sideways. */
+  flex: 0 100 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kind {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+.kind-link {
+  background: #4f6d8f;
+}
+
+.kind-mesh {
+  background: #7d8792;
+}
+
+.kind-joint {
+  background: #b07a22;
+}
+
+
+/* ---------------------------------------------------------------- joints */
+
+.joints {
+  padding: 2px 10px 6px;
+}
+
+.joint-actions {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin: 4px 0 6px;
+}
+
+.joint {
+  padding: 5px 6px;
+  margin: 0 -6px;
+  border-radius: 4px;
+}
+
+.joint.selected {
+  background: var(--accent-soft);
+}
+
+.joint-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.joint-name {
+  border: none;
+  background: none;
+  padding: 0;
+  min-height: 0;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.joint-name:hover:not(:disabled) {
+  background: none;
+  text-decoration: underline;
+}
+
+.joint-type {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.joint-moved {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--warn);
+}
+
+.joint-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.joint-row input[type='range'] {
+  flex: 1;
+  min-width: 60px;
+  accent-color: var(--accent);
+}
+
+.joint-limits {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 96px;
+  font-size: 10px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ---------------------------------------------------------------- properties */
+
+.props {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px 10px;
+  margin: 0;
+  padding: 4px 10px;
+}
+
+.props dt {
+  color: var(--muted);
+}
+
+.props dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--border);
+  vertical-align: -1px;
+}
+
+
+.kind-component {
+  background: var(--ok);
+}
+
+.warn-badge {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--warn);
+  color: var(--panel);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+}
+
+.warn-list {
+  margin: 0;
+  padding-left: 16px;
+  color: var(--warn);
+}
+
+
+.zone-swatch {
+  flex: none;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  vertical-align: -2px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.zone-mount_allowed {
+  background: #22b14c;
+}
+
+.zone-keep_out {
+  background: repeating-linear-gradient(45deg, #e5322b 0 3px, rgba(229, 50, 43, 0.25) 3px 6px);
+}
+
+.zone-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  padding: 0 6px 0 10px;
+}
+
+.zone-row:hover {
+  background: var(--hover);
+}
+
+.zone-row.selected {
+  background: var(--accent-soft);
+}
+
+.zone-row.hidden-zone .zone-label {
+  opacity: 0.5;
+}
+
+.zone-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  padding: 1px 0;
+  text-align: left;
+}
+
+.zone-label:hover:not(:disabled) {
+  background: none;
+}
+
+.zone-kind {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0 3px;
+}
+
+.zone-edit {
+  flex: 1;
+}
+
+.icon-text {
+  min-height: 20px;
+  padding: 0 5px;
+  font-size: 11px;
+}
+
+
+.part-row.selected .part-button {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.part-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: calc(100% - 16px);
+  margin: 2px 8px;
+  white-space: normal;
+  text-align: left;
+  padding: 4px 8px;
+}
+
+.part-name {
+  font-weight: 600;
+}
+
+.part-meta {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.cat {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+
+.joint-editor {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-2);
+  overflow: auto;
+  max-height: 60%;
+  flex: none;
+}
+
+.je-title {
+  margin-bottom: 6px;
+}
+
+.je-grid {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.je-section {
+  margin: 8px 0 0;
+  padding: 6px 0 0;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.je-section legend {
+  padding: 0;
+  font-weight: 600;
+}
+
+.je-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.je-row input[type='range'],
+.je-section input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.je-hint,
+.je-fit {
+  margin: 4px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.je-fit.warn-text {
+  color: var(--warn);
+}
+
+.je-check {
+  display: block;
+  margin: 2px 0;
+}
+
+.joint-hint {
+  line-height: 1.45;
+}
+
+.tree-row.hidden-mesh .tree-text {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+
+.joint-editor .je-footer {
+  position: sticky;
+  bottom: -8px;
+  margin: 8px -10px -8px;
+  padding: 6px 10px 8px;
+  background: var(--panel-2);
+  border-top: 1px solid var(--border);
+  z-index: 1;
+}
+
+.je-suggest {
+  margin: 6px 0;
+}
+
+.je-suggest-list {
+  list-style: none;
+  margin: 4px 0;
+  padding: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.je-suggest-list button {
+  width: 100%;
+  text-align: left;
+  white-space: normal;
+}
+
+
+/* ---------------------------------------------------------------- wires */
+.wires-panel {
+  padding-bottom: 8px;
+}
+
+.wire-types {
+  padding: 4px 8px;
+}
+
+.wire-type-list {
+  /* Rows carry a thumbnail and are tall: give the list a share of the window, not a fixed few rows. */
+  max-height: max(220px, 42vh);
+  overflow: auto;
+  margin-top: 4px;
+}
+
+.part-button.chosen {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.wire-build {
+  padding: 4px 10px;
+}
+
+.wire-build input.num {
+  width: 60px;
+}
+
+.compare-panel {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  max-height: 55%;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  z-index: 7;
+}
+
+.compare-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-scroll {
+  overflow: auto;
+  flex: 1;
+}
+
+.compare-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.compare-table th {
+  position: sticky;
+  top: 0;
+  background: var(--panel-2);
+}
+
+.compare-table td.bad {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.compare-table td.compare-notes {
+  white-space: normal;
+  min-width: 220px;
+  max-width: 340px;
+  font-size: 11px;
+}
+
+.compare-table td.compare-notes ul {
+  margin: 0;
+  padding-left: 14px;
+}
+
+.compare-table td.warnish {
+  color: var(--warn);
+}
+
+.compare-table tr.current {
+  background: var(--accent-soft);
+}
+
+.compare-table tr.pinned td:first-child {
+  border-left: 3px solid var(--accent);
+}
+
+.compare-foot {
+  padding: 4px 10px 6px;
+}
+
+
+/* ---- parts tab: search, groups, thumbnails ---- */
+.parts-filter {
+  display: flex;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.parts-filter input {
+  flex: 1;
+  min-width: 0;
+}
+
+.parts-filter select {
+  max-width: 45%;
+}
+
+.part-group .panel-subtitle {
+  margin-top: 10px;
+}
+
+.part-button.with-thumb {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.part-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.part-thumb {
+  flex: none;
+  border-radius: 4px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.part-thumb img {
+  display: block;
+}
+
+.standin {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0 4px;
+  margin-left: 4px;
+}
+
+.part-details .inline-row {
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.model-credit {
+  font-size: 12px;
+}
+
+
+/* ---- cable types: groups and port fit ---- */
+.type-group {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 8px 0 2px;
+}
+
+.fit-yes {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ok);
+}
+
+.fit-no {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--error);
+}
+
+.part-button.misfit .part-name {
+  opacity: 0.75;
+}
+
+.joint-actions button,
+.mesh-actions button {
+  white-space: normal;
+}
+
+
+/* ---------------------------------------------------------------- my parts */
+
+.parts.drop-target {
+  outline: 2px dashed var(--accent);
+  outline-offset: -4px;
+}
+
+.modal.add-part {
+  width: min(560px, calc(100vw - 32px));
+}
+
+.add-part-orient {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.add-part-orient .seg-wrap {
+  flex: 1 1 220px;
+}
+
+.add-part-preview {
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+}
+
+.port-editor {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.port-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.port-row {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.port-head {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+.port-edit {
+  margin-top: 6px;
+  /* One column: labels above their fields, so the editor fits the side panel at its narrowest (220 px). */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+}
+
+.port-edit > .muted:not(.small) {
+  margin-top: 4px;
+}
+
+.port-conn select,
+.port-conn input {
+  width: 100%;
+  min-width: 0;
+}
+
+.port-conn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.port-conn select {
+  max-width: 100%;
+}
+
+.port-ifaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+
+.port-ifaces label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.port-nudge {
+  margin-right: 8px;
+}
+
+.port-nudge button {
+  min-width: 24px;
+  padding: 0 4px;
+}
+
+.part-actions {
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.confirm-box {
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+}
+
+
+/* ---------------------------------------------------------------- cable thumbnails and the user's own cables */
+
+.cable-thumb {
+  display: inline-block;
+  flex: none;
+  border-radius: 3px;
+  background: var(--panel-2);
+  vertical-align: middle;
+}
+
+.cable-thumb img {
+  display: block;
+}
+
+.part-button.with-thumb {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 6px;
+  align-items: center;
+}
+
+.part-button.with-thumb .cable-thumb {
+  grid-row: span 2;
+}
+
+.mine-badge {
+  margin-left: 4px;
+  font-size: 10px;
+  padding: 0 4px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+.modal.add-cable {
+  width: min(640px, calc(100vw - 32px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+}
+
+.add-cable-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.add-cable-form {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.add-cable-preview {
+  flex: 0 1 220px;
+  min-width: 0;
+}
+
+.add-cable .field-note {
+  grid-column: 2;
+  margin-top: -2px;
+}
+
+.add-cable .field-problem {
+  grid-column: 2;
+  color: var(--warn);
+}
+
+.add-cable input.num {
+  width: 90px;
+}
+
+.derived-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+
+.cable-own-banner {
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+/* ================================================================ redesign: shared content patterns */
+
+.empty-note {
+  margin: var(--s2) 0;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.panel-actions,
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: var(--s3) 0 var(--s2);
+}
+.panel-subtitle {
+  margin: var(--s3) 0 var(--s1);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.inline-row {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+}
+.check-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.hint,
+.hint-line {
+  margin: var(--s2) 0;
+}
+.hint-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* segmented control */
+.seg {
+  display: inline-flex;
+}
+.seg button {
+  border-radius: 0;
+  margin-left: -1px;
+}
+.seg button:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  margin-left: 0;
+}
+.seg button:last-child {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.seg.seg-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.seg.seg-wrap button,
+.seg.seg-wrap button:first-child,
+.seg.seg-wrap button:last-child {
+  margin-left: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* label/value grid with aligned labels */
+.props {
+  display: grid;
+  grid-template-columns: minmax(84px, max-content) minmax(0, 1fr);
+  gap: 6px var(--s3);
+  align-items: baseline;
+  margin: 0 0 var(--s2);
+  padding: 0;
+}
+.props dt {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+.props dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.props dd > select,
+.props dd > input.text {
+  width: 100%;
+}
+.props-pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding-top: var(--s1);
+}
+.props-pane > .section-label {
+  margin-top: var(--s2);
+}
+.obj-head {
+  display: flex;
+  gap: var(--s3);
+  align-items: center;
+  min-width: 0;
+}
+.obj-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+.obj-name {
+  font-weight: 600;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: var(--radius-sm);
+  background: var(--panel-3);
+  color: var(--text-2);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.tag-accent {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.tag-ok {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+.tag-warn {
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+.tag-fail {
+  background: var(--error-bg);
+  color: var(--error);
+}
+a.tag-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+a.tag-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* status: icon + colour + word */
+.status-icon {
+  display: inline-flex;
+  flex: none;
+}
+.status-icon.ok {
+  color: var(--ok);
+}
+.status-icon.warn {
+  color: var(--warn);
+}
+.status-icon.fail {
+  color: var(--error);
+}
+.status-icon.info,
+.status-icon.checking,
+.status-icon.unknown {
+  color: var(--muted);
+}
+
+/* check rows: one line with the verdict and its numbers; the explanation in the expander */
+.checks {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.check-row + .check-row {
+  border-top: 1px solid var(--border);
+}
+.check-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 32px;
+  padding: 4px var(--s2);
+  list-style: none;
+  cursor: default;
+}
+details.check-row > .check-head {
+  cursor: pointer;
+}
+details.check-row > .check-head::-webkit-details-marker {
+  display: none;
+}
+details.check-row > .check-head:hover {
+  background: var(--hover);
+}
+details.check-row[open] > .check-head .chev {
+  transform: rotate(45deg);
+}
+.check-title {
+  font-weight: 600;
+  flex: none;
+}
+.check-summary {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+.check-row.fail .check-summary {
+  color: var(--error);
+}
+.check-row.warn .check-summary {
+  color: var(--warn);
+}
+.check-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: var(--s1) var(--s3) var(--s3) 30px;
+  background: var(--panel-2);
+}
+.check-body p {
+  margin: 0;
+}
+.check-body ul {
+  margin: 0;
+}
+
+.length-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.big-number {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.expander > summary {
+  cursor: pointer;
+  color: var(--accent-text);
+  font-size: var(--fs-sm);
+  padding: 2px 0;
+}
+.expander[open] > summary {
+  margin-bottom: 4px;
+}
+.plain-list {
+  list-style: none;
+  margin: var(--s1) 0;
+  padding: 0;
+}
+.plain-list li {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  padding: 2px 0;
+}
+.plain-list li .ellipsis {
+  flex: 1;
+}
+
+/* info tooltip */
+.info-tip {
+  display: inline-flex;
+  color: var(--muted);
+  cursor: help;
+  border-radius: 50%;
+}
+.info-tip:hover {
+  color: var(--text);
+}
+
+/* compact form */
+.form-grid {
+  display: grid;
+  grid-template-columns: minmax(84px, max-content) minmax(0, 1fr);
+  gap: 6px var(--s3);
+  align-items: center;
+  margin: var(--s3) 0;
+}
+.form-grid > label {
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+.field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+/* sections inside a tab */
+.tab-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  margin-bottom: var(--s4);
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.empty-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s2);
+  padding: var(--s3);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+.empty-block p {
+  margin: 0;
+}
+.inline-note {
+  padding: 6px var(--s2);
+  border-radius: var(--radius-sm);
+  background: var(--info-bg);
+  color: var(--text-2);
+}
+
+/* library header: search, filter, add */
+.lib-head {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: var(--s2);
+}
+.lib-head select {
+  flex: 0 1 112px;
+  min-width: 0;
+}
+.search-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.search-field > .icon {
+  position: absolute;
+  left: 8px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.search-field input {
+  width: 100%;
+  padding-left: 28px;
+}
+.lib-head .icon-btn {
+  border-color: var(--btn-border);
+  background: var(--btn);
+  color: var(--text);
+}
+
+/* compact library rows (cables and parts) */
+.lib-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 44px;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  white-space: normal;
+}
+.lib-row:hover:not(:disabled) {
+  background: var(--hover);
+}
+.lib-row.chosen,
+.lib-row[aria-pressed='true'],
+.part-row.selected .lib-row {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  color: inherit;
+}
+.lib-row.misfit .lib-name {
+  color: var(--muted);
+}
+.lib-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+.lib-name {
+  display: block;
+  font-weight: 500;
+}
+/* Library names often differ only at their end ("..., 28 AWG"): two lines before they are cut. */
+.lib-name.two-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+.lib-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.lib-meta > .ellipsis {
+  flex: 0 1 auto;
+}
+.type-group {
+  position: sticky;
+  top: calc(-1 * var(--s3));
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--s2) 0 2px;
+  padding: 6px 0 4px;
+  background: var(--panel);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.wire-type-list {
+  max-height: none;
+  overflow: visible;
+  border: none;
+}
+.type-actions {
+  display: flex;
+  gap: 6px;
+  padding: 2px 0 6px 46px;
+}
+.cable-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 6px var(--s2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+  min-width: 0;
+}
+.cable-thumb,
+.part-thumb {
+  display: inline-block;
+  flex: none;
+  border-radius: var(--radius-sm);
+  background: var(--panel-3);
+  overflow: hidden;
+}
+.cable-thumb img,
+.part-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.draw-btn {
+  align-self: flex-start;
+}
+
+/* the design's wires */
+.row-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.wire-row-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 34px;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.wire-row-btn:hover:not(:disabled) {
+  background: var(--hover);
+}
+.wire-row.selected .wire-row-btn {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.wire-name {
+  flex: 1;
+  text-align: left;
+}
+.wire-len {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+.cut-totals {
+  margin: var(--s2) 0;
+}
+.cut-totals > summary {
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  min-width: 0;
+}
+
+/* parts list */
+.parts .part-group {
+  margin-bottom: var(--s2);
+}
+.part-lib-row {
+  min-height: 48px;
+}
+
+/* properties of other things */
+.mesh-actions,
+.joint-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.part-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+.zone-row {
+  border-radius: var(--radius-sm);
+}
+.tree-row {
+  border-radius: var(--radius-sm);
+}
+.zone-swatch {
+  flex: none;
+}
+
+/* the add-cable dialog keeps its preview beside the form */
+.modal.add-cable {
+  width: min(680px, 100%);
+}
+.modal.add-part {
+  width: min(580px, 100%);
+}
+.add-cable-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+}
+.add-cable-form {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+.add-cable-preview {
+  flex: 0 1 220px;
+  min-width: 0;
+  position: sticky;
+  top: 56px;
+  align-self: flex-start;
+}
+.add-part-preview {
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+}
+.derived-list {
+  margin: 4px 0 0;
+  padding-left: 18px;
+}
+.add-cable .field-note {
+  grid-column: 2;
+  margin-top: -2px;
+}
+.add-cable .field-problem {
+  grid-column: 2;
+  color: var(--error);
+}
+.add-cable input.num {
+  width: 96px;
+}
+.confirm-box {
+  margin-top: var(--s2);
+  padding: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel-2);
+}
+button.link,
+.linkish {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent-text);
+  text-decoration: underline;
+  cursor: pointer;
+}
+button.link:hover:not(:disabled),
+.linkish:hover:not(:disabled) {
+  background: none;
+}
+.mine-badge {
+  margin-left: 4px;
+  font-size: var(--fs-xs);
+  padding: 0 4px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.parts.drop-target {
+  outline: 2px dashed var(--accent);
+  outline-offset: -4px;
+}
+.port-editor {
+  margin-top: var(--s2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.port-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.port-row {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+}
+.port-head {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+  border: none;
+  background: none;
+  gap: 6px;
+}
+.port-edit {
+  margin-top: 6px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+}
+.port-edit > .muted:not(.small) {
+  margin-top: 4px;
+}
+.port-conn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.port-conn select,
+.port-conn input {
+  width: 100%;
+  min-width: 0;
+}
+.port-ifaces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+}
+.port-ifaces label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.port-nudge {
+  margin-right: 8px;
+}
+.port-nudge button {
+  min-width: 24px;
+  padding: 0 4px;
+}
+.part-actions {
+  margin-top: var(--s2);
+  flex-wrap: wrap;
+}
+.add-part-orient {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3);
+  align-items: flex-start;
+}
+.add-part-orient .seg-wrap {
+  flex: 1 1 220px;
+}
+.compare-panel {
+  background: var(--panel);
+  border-color: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.cut-totals > summary > .small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}

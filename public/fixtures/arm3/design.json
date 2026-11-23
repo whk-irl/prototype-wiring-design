@@ -1,0 +1,221 @@
+{
+  "schema": 1,
+  "meta": {
+    "name": "Three-axis arm with gripper"
+  },
+  "scene": {
+    "sources": [
+      {
+        "id": "arm3",
+        "kind": "urdf",
+        "uri": "arm3.urdf",
+        "mm_per_unit": 1000,
+        "sha256": "a2279ce9720e04df3865f0ecd89a69c7d8903e6fd7873696606d343467bd531b"
+      }
+    ],
+    "links": [
+      {
+        "id": "arm3.base_link",
+        "name": "base_link",
+        "meshes": [
+          {
+            "id": "arm3.base_link.v0",
+            "source": "arm3",
+            "node": "base_link/visual0",
+            "tri_count": 128
+          }
+        ]
+      },
+      {
+        "id": "arm3.turret",
+        "name": "turret",
+        "meshes": [
+          {
+            "id": "arm3.turret.v0",
+            "source": "arm3",
+            "node": "turret/visual0",
+            "tri_count": 12
+          }
+        ]
+      },
+      {
+        "id": "arm3.upper_arm",
+        "name": "upper_arm",
+        "meshes": [
+          {
+            "id": "arm3.upper_arm.v0",
+            "source": "arm3",
+            "node": "upper_arm/visual0",
+            "tri_count": 12
+          },
+          {
+            "id": "arm3.upper_arm.v1",
+            "source": "arm3",
+            "node": "upper_arm/visual1",
+            "tri_count": 128
+          }
+        ]
+      },
+      {
+        "id": "arm3.forearm",
+        "name": "forearm",
+        "meshes": [
+          {
+            "id": "arm3.forearm.v0",
+            "source": "arm3",
+            "node": "forearm/visual0",
+            "tri_count": 128
+          },
+          {
+            "id": "arm3.forearm.v1",
+            "source": "arm3",
+            "node": "forearm/visual1",
+            "tri_count": 536
+          }
+        ]
+      },
+      {
+        "id": "arm3.finger",
+        "name": "finger",
+        "meshes": [
+          {
+            "id": "arm3.finger.v0",
+            "source": "arm3",
+            "node": "finger/visual0",
+            "tri_count": 12
+          }
+        ]
+      }
+    ],
+    "joints": [
+      {
+        "id": "arm3.base_yaw",
+        "name": "base_yaw",
+        "type": "revolute",
+        "parent": "arm3.base_link",
+        "child": "arm3.turret",
+        "origin": {
+          "p_mm": [
+            0,
+            0,
+            40
+          ],
+          "q": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "axis": [
+          0,
+          0,
+          1
+        ],
+        "limit": {
+          "lower": -2.9670597283903604,
+          "upper": 2.9670597283903604
+        },
+        "value": 0
+      },
+      {
+        "id": "arm3.shoulder",
+        "name": "shoulder",
+        "type": "revolute",
+        "parent": "arm3.turret",
+        "child": "arm3.upper_arm",
+        "origin": {
+          "p_mm": [
+            0,
+            0,
+            60
+          ],
+          "q": [
+            0,
+            0,
+            0.14943813247359924,
+            0.9887710779360425
+          ]
+        },
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "limit": {
+          "lower": -1.2,
+          "upper": 1.9
+        },
+        "value": 0
+      },
+      {
+        "id": "arm3.elbow",
+        "name": "elbow",
+        "type": "revolute",
+        "parent": "arm3.upper_arm",
+        "child": "arm3.forearm",
+        "origin": {
+          "p_mm": [
+            10,
+            0,
+            200
+          ],
+          "q": [
+            0,
+            0.19866933079506122,
+            0,
+            0.9800665778412416
+          ]
+        },
+        "axis": [
+          0,
+          1,
+          0
+        ],
+        "limit": {
+          "lower": -2,
+          "upper": 2
+        },
+        "value": 0
+      },
+      {
+        "id": "arm3.finger_slide",
+        "name": "finger_slide",
+        "type": "prismatic",
+        "parent": "arm3.forearm",
+        "child": "arm3.finger",
+        "origin": {
+          "p_mm": [
+            0,
+            0,
+            140
+          ],
+          "q": [
+            0,
+            0,
+            0.7071067811865475,
+            0.7071067811865476
+          ]
+        },
+        "axis": [
+          1,
+          0,
+          0
+        ],
+        "limit": {
+          "lower": 0,
+          "upper": 30
+        },
+        "value": 0
+      }
+    ]
+  },
+  "zones": [],
+  "components": [],
+  "connections": [],
+  "cables": [],
+  "routes": [],
+  "fixings": [],
+  "mounts": [],
+  "checks": []
+}

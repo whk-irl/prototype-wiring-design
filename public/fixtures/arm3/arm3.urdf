@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+  arm3: a small hand-written 4-joint arm used as an import and kinematics fixture.
+  Lengths in metres, angles in radians (URDF convention).
+
+    base_link, base_yaw, turret, shoulder, upper_arm, elbow, forearm, finger_slide, finger (a chain)
+
+  Roughly 400 mm from the shoulder axis to the fingertip with the arm stretched upwards.
+  Origins carry non-zero rpy on purpose, and the shoulder, elbow and finger axes are not Z.
+-->
+<robot name="arm3">
+  <material name="steel">
+    <color rgba="0.6 0.62 0.66 1"/>
+  </material>
+  <material name="orange">
+    <color rgba="0.95 0.45 0.1 1"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry><cylinder radius="0.06" length="0.04"/></geometry>
+      <material name="steel"/>
+    </visual>
+  </link>
+
+  <link name="turret">
+    <visual>
+      <origin xyz="0.01 0 0.03" rpy="0 0 0.2"/>
+      <geometry><box size="0.08 0.06 0.06"/></geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <link name="upper_arm">
+    <visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0"/>
+      <geometry><box size="0.04 0.03 0.2"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.2" rpy="1.5707963267948966 0 0"/>
+      <geometry><cylinder radius="0.02" length="0.05"/></geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <link name="forearm">
+    <visual>
+      <origin xyz="0 0 0.06" rpy="0 0.1 0"/>
+      <geometry><cylinder radius="0.015" length="0.12"/></geometry>
+      <material name="steel"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0.12" rpy="0 0 0.7853981633974483"/>
+      <geometry>
+        <mesh filename="package://arm3/meshes/gripper_base.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <link name="finger">
+    <visual>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <geometry><box size="0.008 0.006 0.04"/></geometry>
+      <material name="steel"/>
+    </visual>
+  </link>
+
+  <joint name="base_yaw" type="revolute">
+    <parent link="base_link"/>
+    <child link="turret"/>
+    <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.9670597283903604" upper="2.9670597283903604" effort="20" velocity="2"/>
+  </joint>
+
+  <joint name="shoulder" type="revolute">
+    <parent link="turret"/>
+    <child link="upper_arm"/>
+    <origin xyz="0 0 0.06" rpy="0 0 0.3"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.2" upper="1.9" effort="30" velocity="2"/>
+  </joint>
+
+  <joint name="elbow" type="revolute">
+    <parent link="upper_arm"/>
+    <child link="forearm"/>
+    <origin xyz="0.01 0 0.2" rpy="0 0.4 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.0" upper="2.0" effort="20" velocity="2"/>
+  </joint>
+
+  <joint name="finger_slide" type="prismatic">
+    <parent link="forearm"/>
+    <child link="finger"/>
+    <origin xyz="0.0 0.0 0.14" rpy="0 0 1.5707963267948966"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="0" upper="0.03" effort="10" velocity="0.05"/>
+  </joint>
+</robot>

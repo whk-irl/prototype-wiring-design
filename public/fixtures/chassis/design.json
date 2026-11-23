@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "meta": {
+    "name": "Mobile robot chassis"
+  },
+  "scene": {
+    "sources": [
+      {
+        "id": "chassis",
+        "kind": "glb",
+        "uri": "chassis.glb",
+        "mm_per_unit": 1000,
+        "sha256": "429a9abdc49d01e2e2582ea227fd192e542ed3f41a47d0fc5db55dbce2937d9c"
+      }
+    ],
+    "links": [
+      {
+        "id": "chassis.link",
+        "name": "chassis",
+        "meshes": [
+          {
+            "id": "chassis.plate",
+            "source": "chassis",
+            "node": "plate",
+            "tri_count": 12
+          },
+          {
+            "id": "chassis.motor_left",
+            "source": "chassis",
+            "node": "motor_left",
+            "tri_count": 192
+          },
+          {
+            "id": "chassis.wheel_left",
+            "source": "chassis",
+            "node": "wheel_left",
+            "tri_count": 192
+          },
+          {
+            "id": "chassis.motor_right",
+            "source": "chassis",
+            "node": "motor_right",
+            "tri_count": 192
+          },
+          {
+            "id": "chassis.wheel_right",
+            "source": "chassis",
+            "node": "wheel_right",
+            "tri_count": 192
+          },
+          {
+            "id": "chassis.battery",
+            "source": "chassis",
+            "node": "battery",
+            "tri_count": 12
+          }
+        ]
+      }
+    ],
+    "joints": []
+  },
+  "zones": [],
+  "components": [],
+  "connections": [],
+  "cables": [],
+  "routes": [],
+  "fixings": [],
+  "mounts": [],
+  "checks": []
+}

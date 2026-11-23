@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "meta": {
+    "name": "CAD-only arm (no joints yet)"
+  },
+  "scene": {
+    "sources": [
+      {
+        "id": "arm-cad",
+        "kind": "step",
+        "uri": "arm-cad.step",
+        "mm_per_unit": 1,
+        "sha256": "faaff7b0a0d641afe24d24066182eeaf03ea5bdb75e8001e2a08b802f255808c"
+      }
+    ],
+    "links": [
+      {
+        "id": "arm-cad.link",
+        "name": "arm-cad",
+        "meshes": [
+          {
+            "id": "arm-cad.base_plate",
+            "source": "arm-cad",
+            "node": "arm_cad/base_plate",
+            "tri_count": 12
+          },
+          {
+            "id": "arm-cad.pedestal",
+            "source": "arm-cad",
+            "node": "arm_cad/pedestal",
+            "tri_count": 608
+          },
+          {
+            "id": "arm-cad.turret",
+            "source": "arm-cad",
+            "node": "arm_cad/turret",
+            "tri_count": 420
+          },
+          {
+            "id": "arm-cad.shoulder_pin",
+            "source": "arm-cad",
+            "node": "arm_cad/shoulder_pin",
+            "tri_count": 828
+          },
+          {
+            "id": "arm-cad.upper_arm",
+            "source": "arm-cad",
+            "node": "arm_cad/upper_arm",
+            "tri_count": 228
+          },
+          {
+            "id": "arm-cad.elbow_pin",
+            "source": "arm-cad",
+            "node": "arm_cad/elbow_pin",
+            "tri_count": 204
+          },
+          {
+            "id": "arm-cad.forearm",
+            "source": "arm-cad",
+            "node": "arm_cad/forearm",
+            "tri_count": 120
+          },
+          {
+            "id": "arm-cad.tool_plate",
+            "source": "arm-cad",
+            "node": "arm_cad/tool_plate",
+            "tri_count": 120
+          },
+          {
+            "id": "arm-cad.screw_1",
+            "source": "arm-cad",
+            "node": "arm_cad/screw_1",
+            "tri_count": 100
+          },
+          {
+            "id": "arm-cad.screw_2",
+            "source": "arm-cad",
+            "node": "arm_cad/screw_2",
+            "tri_count": 100
+          },
+          {
+            "id": "arm-cad.screw_3",
+            "source": "arm-cad",
+            "node": "arm_cad/screw_3",
+            "tri_count": 100
+          },
+          {
+            "id": "arm-cad.screw_4",
+            "source": "arm-cad",
+            "node": "arm_cad/screw_4",
+            "tri_count": 100
+          }
+        ]
+      }
+    ],
+    "joints": []
+  },
+  "zones": [],
+  "components": [],
+  "connections": [],
+  "cables": [],
+  "routes": [],
+  "fixings": [],
+  "mounts": [],
+  "checks": []
+}

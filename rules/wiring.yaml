@@ -1,0 +1,103 @@
+# Wiring rules. Format: src/core/rules.ts. Sources and caveats: docs/RESEARCH.md.
+#
+# This file is a first seed that fixes the format. The full rule set, the
+# conditions vocabulary and the engine that applies it arrive in milestone M2.
+# A rule with confidence `unverified` may warn but never fail.
+version: 1
+rules:
+  - id: bend.fpc.static.single-layer
+    title: Static bend of a single-layer flex circuit
+    when: { cable_class: [fpc], motion: [static], layers: ['1'] }
+    quantity: bend_radius_over_thickness
+    op: '>='
+    value: 6
+    severity: fail
+    confidence: vendor
+    source: https://www.protoexpress.com/blog/ipc-2223-standards-and-design-violations-rigid-flex-boards/
+    note: Vendors quote this from IPC-2223; the standard itself was not read.
+
+  - id: bend.fpc.static.double-layer
+    title: Static bend of a double-layer flex circuit
+    when: { cable_class: [fpc], motion: [static], layers: ['2'] }
+    quantity: bend_radius_over_thickness
+    op: '>='
+    value: 12
+    severity: fail
+    confidence: vendor
+    source: https://jlcpcb.com/blog/flex-pcb-bend-radius-calculation-minimum-radius-design-guidelines
+    note: Vendors give 10 to 12; the conservative end is used.
+
+  - id: bend.fpc.dynamic
+    title: Dynamic bend of a flex circuit
+    when: { cable_class: [fpc], motion: [dynamic] }
+    quantity: bend_radius_over_thickness
+    op: '>='
+    value: 100
+    severity: warn
+    confidence: vendor
+    source: https://www.protoexpress.com/blog/ipc-2223-standards-and-design-violations-rigid-flex-boards/
+    note: Sources disagree, from 20 to 100. The conservative end is used, as a warning.
+
+  - id: bend.round.default
+    title: Bend radius of a round cable with no datasheet value
+    when: { cable_class: [round] }
+    quantity: bend_radius_over_diameter
+    op: '>='
+    value: 10
+    severity: warn
+    confidence: rule_of_thumb
+    source: https://www.igus.eu/info/unharnessed-cables-bend-radius
+    note: The cable's own datasheet factor always replaces this.
+
+  - id: twist.round.torsion-rated
+    title: Twist of a torsion-rated robot cable
+    when: { cable_class: [round], rating: [torsion] }
+    quantity: twist_deg_per_m
+    op: '<='
+    value: 180
+    severity: fail
+    confidence: vendor
+    source: https://www.mouser.com/datasheet/2/1505/EU_Data_sheet_chainflex_CFROBOT8-3317322.pdf
+    note: One product's rating at 5 million cycles; it falls to 60 at 10 million. Use the datasheet of the chosen cable.
+
+  - id: chain.fill
+    title: Drag chain fill
+    when: { carrier: [drag_chain] }
+    quantity: fill_ratio
+    op: '<='
+    value: 0.6
+    severity: warn
+    confidence: vendor
+    source: https://e.lapp.com/us/cable-carrier-design-guidelines
+
+  - id: i2c.capacitance
+    title: I2C bus capacitance
+    when: { interface: [i2c] }
+    quantity: bus_capacitance_pf
+    op: '<='
+    value: 400
+    severity: warn
+    confidence: standard
+    source: https://www.nxp.com/docs/en/user-guide/UM10204.pdf
+    overridable_by: [user]
+
+  - id: ampacity.awg22
+    title: Current in a single 22 AWG wire in free air
+    when: { awg: ['22'] }
+    quantity: current_a
+    op: '<='
+    value: 8
+    severity: fail
+    confidence: vendor
+    source: https://www.remingtonindustries.com/resources/hook-up-wire-ampacity/
+    note: Free-air value at 30 C with 80 C insulation. No bundle derating is applied yet.
+
+  - id: fixing.spacing.static
+    title: Spacing of ties or clips on a static run
+    when: { motion: [static] }
+    quantity: fixing_spacing_mm
+    op: '<='
+    value: 100
+    severity: info
+    confidence: unverified
+    note: A default nobody has sourced yet.

@@ -1,0 +1,144 @@
+# Starter parts. Every entry here is a GENERIC stand-in with plausible
+# dimensions, not a real product. Real parts with datasheet sources arrive with
+# the component library in milestone M2.
+#
+# Part frame: origin at the centre of the mounting face, +Z away from the
+# surface. Port frame: +X is the direction the cable leaves the connector.
+# A port names a connector FAMILY from library/connectors.yaml and, where the
+# family comes in several sizes, its number of ways.
+# Port rotations used below (quaternion x, y, z, w):
+#   exit +X  [0, 0, 0, 1]
+#   exit -X  [0, 0, 1, 0]
+#   exit +Y  [0, 0, 0.7071068, 0.7071068]
+#   exit -Y  [0, 0, -0.7071068, 0.7071068]
+version: 1
+parts:
+  - id: generic-controller-70x50
+    name: Controller board, 70 x 50 mm
+    category: controller
+    body: { size_mm: [70, 50, 12] }
+    mounting_holes:
+      - { p_mm: [-31, -21], d_mm: 3.2 }
+      - { p_mm: [31, -21], d_mm: 3.2 }
+      - { p_mm: [-31, 21], d_mm: 3.2 }
+      - { p_mm: [31, 21], d_mm: 3.2 }
+    ports:
+      - id: i2c0
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [35, 10, 3], q: [0, 0, 0, 1] }
+        interfaces: [i2c]
+      - id: can0
+        connector: jst-gh
+        ways: 4
+        pose: { p_mm: [35, -10, 3], q: [0, 0, 0, 1] }
+        interfaces: [can]
+      - id: uart0
+        connector: jst-gh
+        ways: 4
+        pose: { p_mm: [0, 25, 3], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: [uart]
+      - id: pwr
+        connector: xt30
+        pose: { p_mm: [-35, 0, 5], q: [0, 0, 1, 0] }
+        interfaces: [power]
+    confidence: generic
+
+  - id: generic-sbc-85x56
+    name: Single-board computer, 85 x 56 mm
+    category: controller
+    body: { size_mm: [85, 56, 17] }
+    mounting_holes:
+      - { p_mm: [-39, -24.5], d_mm: 2.7 }
+      - { p_mm: [19, -24.5], d_mm: 2.7 }
+      - { p_mm: [-39, 24.5], d_mm: 2.7 }
+      - { p_mm: [19, 24.5], d_mm: 2.7 }
+    ports:
+      - id: usb0
+        connector: usb-a
+        pose: { p_mm: [42.5, 12, 8], q: [0, 0, 0, 1] }
+        interfaces: [usb2, usb3]
+      - id: eth0
+        connector: rj45
+        pose: { p_mm: [42.5, -14, 8], q: [0, 0, 0, 1] }
+        interfaces: [ethernet]
+      - id: csi0
+        connector: ffc-1.0
+        ways: 15
+        pose: { p_mm: [0, 0, 6], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: [mipi_csi]
+      - id: pwr
+        connector: usb-c
+        pose: { p_mm: [-30, -28, 3], q: [0, 0, -0.7071068, 0.7071068] }
+        interfaces: [power]
+    confidence: generic
+
+  - id: generic-breakout-25x18
+    name: Sensor breakout, 25 x 18 mm
+    category: sensor
+    body: { size_mm: [25, 18, 5] }
+    mounting_holes:
+      - { p_mm: [-10, -6.5], d_mm: 2.5 }
+      - { p_mm: [10, -6.5], d_mm: 2.5 }
+      - { p_mm: [-10, 6.5], d_mm: 2.5 }
+      - { p_mm: [10, 6.5], d_mm: 2.5 }
+    ports:
+      - id: i2c-in
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.5, 0, 2], q: [0, 0, 1, 0] }
+        interfaces: [i2c]
+      - id: i2c-out
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.5, 0, 2], q: [0, 0, 0, 1] }
+        interfaces: [i2c]
+    confidence: generic
+
+  - id: generic-motor-driver-60x40
+    name: Motor driver, 60 x 40 mm
+    category: driver
+    body: { size_mm: [60, 40, 20] }
+    mounting_holes:
+      - { p_mm: [-26, -16], d_mm: 3.2 }
+      - { p_mm: [26, -16], d_mm: 3.2 }
+      - { p_mm: [-26, 16], d_mm: 3.2 }
+      - { p_mm: [26, 16], d_mm: 3.2 }
+    ports:
+      - id: pwr
+        connector: xt30
+        pose: { p_mm: [-30, 0, 6], q: [0, 0, 1, 0] }
+        interfaces: [power]
+      - id: motor
+        connector: screw-terminal-5.08
+        ways: 3
+        pose: { p_mm: [30, 0, 6], q: [0, 0, 0, 1] }
+        interfaces: [motor_phase]
+      - id: can0
+        connector: jst-gh
+        ways: 4
+        pose: { p_mm: [0, 20, 4], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: [can]
+      - id: enc
+        connector: jst-gh
+        ways: 6
+        pose: { p_mm: [0, -20, 4], q: [0, 0, -0.7071068, 0.7071068] }
+        interfaces: [encoder]
+    confidence: generic
+
+  - id: generic-camera-25x24
+    name: Camera module, 25 x 24 mm
+    category: camera
+    body: { size_mm: [25, 24, 9] }
+    mounting_holes:
+      - { p_mm: [-10.5, -9.5], d_mm: 2.2 }
+      - { p_mm: [10.5, -9.5], d_mm: 2.2 }
+      - { p_mm: [-10.5, 3], d_mm: 2.2 }
+      - { p_mm: [10.5, 3], d_mm: 2.2 }
+    ports:
+      - id: csi
+        connector: ffc-1.0
+        ways: 15
+        pose: { p_mm: [0, -12, 1.5], q: [0, 0, -0.7071068, 0.7071068] }
+        interfaces: [mipi_csi]
+    confidence: generic

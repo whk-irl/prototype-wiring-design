@@ -1,0 +1,914 @@
+/* The shell: header, side panels, the 3D view and what floats over it, the status bar, menus, dialogs and notices. */
+
+.app {
+  display: grid;
+  grid-template-rows: var(--header-h) minmax(0, 1fr) var(--status-h);
+  height: 100%;
+  min-height: 0;
+}
+
+/* ---------------------------------------------------------------- header */
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: 0 var(--s2) 0 var(--s3);
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  min-width: 0;
+  overflow: hidden;
+}
+.hdr-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: 340px;
+}
+.hdr-app {
+  font-weight: 650;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.hdr-sep {
+  color: var(--border-strong);
+}
+.hdr-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.hdr-name {
+  min-height: 26px;
+  padding: 0 6px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-2);
+  min-width: 0;
+  max-width: 220px;
+}
+.hdr-name:hover:not(:disabled) {
+  border-color: var(--border);
+}
+.hdr-name-input {
+  width: 200px;
+  min-height: 26px;
+}
+.dirty-dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+.hdr-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+}
+.hdr-group.seg-tools {
+  padding: 2px;
+  background: var(--panel-3);
+  border-radius: var(--radius);
+}
+.seg-tools .hdr-btn {
+  border-color: transparent;
+  background: transparent;
+  min-height: 26px;
+}
+.seg-tools .hdr-btn[aria-pressed='true'] {
+  background: var(--panel);
+  border-color: var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+.hdr-btn {
+  min-height: 30px;
+  padding: 0 10px;
+}
+.hdr-btn.icon-only {
+  padding: 0;
+  min-width: 30px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+}
+.hdr-btn.icon-only:hover:not(:disabled) {
+  background: var(--hover);
+  color: var(--text);
+}
+/* Enabled reads as the text colour; disabled stays legible in both themes (the generic 45% opacity on a muted grey all but vanished on the light header). */
+.hdr-btn.icon-only:not(:disabled) {
+  color: var(--text);
+}
+.hdr-btn.icon-only:disabled {
+  opacity: 0.6;
+  color: var(--muted);
+}
+.hdr-spacer {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.split {
+  display: flex;
+  flex: none;
+}
+.split > .hdr-btn:first-child {
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+.split .menu > button {
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-left: 1px solid color-mix(in srgb, var(--on-accent) 25%, transparent);
+  padding: 0 6px;
+  min-width: 0;
+}
+.split .menu .caret {
+  display: none;
+}
+
+/* narrow windows: labels give way to icons (the buttons keep their accessible names and tooltips) */
+@media (max-width: 900px) {
+  .header .btn-label,
+  .hdr-app,
+  .hdr-sep {
+    display: none;
+  }
+  .header .hdr-btn:not(.split-more) {
+    padding: 0;
+    min-width: 30px;
+  }
+  .header .menu > .hdr-btn {
+    padding: 0 6px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hdr-app,
+  .hdr-sep {
+    display: none;
+  }
+  .header .menu .btn-label {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- menus */
+
+.menu {
+  position: relative;
+  flex: none;
+}
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.6;
+}
+.menu-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  z-index: 40;
+  min-width: 240px;
+  max-width: 340px;
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  padding: var(--s1);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.menu-left {
+  left: 0;
+}
+.menu-right {
+  right: 0;
+}
+/* Drawn on the body, under its button (Menu.tsx). */
+.menu-list.menu-floating {
+  position: fixed;
+  z-index: 1000;
+}
+.menu-list button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--s2);
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+  border: none;
+  background: none;
+  text-align: left;
+  white-space: normal;
+}
+.menu-list button:hover:not(:disabled),
+.menu-list button:focus-visible {
+  background: var(--hover);
+  outline: none;
+}
+.menu-icon {
+  display: inline-flex;
+  width: 16px;
+  margin-top: 1px;
+  color: var(--muted);
+}
+.menu-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.menu-title {
+  font-weight: 500;
+}
+.menu-desc {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+.menu-sep {
+  height: 1px;
+  margin: var(--s1) 0;
+  background: var(--border);
+}
+.menu-heading {
+  padding: 6px 8px 2px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------------------------------------------------------------- workspace and panels */
+
+.workspace {
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+}
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  min-height: 0;
+  background: var(--panel);
+}
+.panel-left {
+  border-right: 1px solid var(--border);
+}
+.panel-right {
+  border-left: 1px solid var(--border);
+}
+.panel.collapsed {
+  width: 32px;
+  align-items: center;
+  padding-top: var(--s1);
+}
+.panel-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--s3) var(--s3) 40px;
+}
+.collapse-btn {
+  position: absolute;
+  bottom: 6px;
+  z-index: 3;
+  min-width: 22px;
+  min-height: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  opacity: 0.7;
+}
+.collapse-btn:hover:not(:disabled) {
+  opacity: 1;
+}
+.collapse-left {
+  right: 8px;
+}
+.collapse-right {
+  left: 8px;
+}
+.resizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  z-index: 4;
+  cursor: col-resize;
+  touch-action: none;
+}
+.resizer-left {
+  right: -4px;
+}
+.resizer-right {
+  left: -4px;
+}
+.resizer:hover,
+.resizer:focus-visible {
+  background: linear-gradient(to right, transparent 3px, var(--accent) 3px, var(--accent) 4px, transparent 4px);
+  outline: none;
+}
+
+/* left tabs */
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 6px var(--s2) 0;
+  border-bottom: 1px solid var(--border);
+  flex: none;
+}
+.tabs button {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 4px;
+  min-height: 32px;
+  padding: 0 4px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+.tabs button:hover:not(:disabled) {
+  background: none;
+  color: var(--text);
+}
+.tabs button[aria-selected='true'] {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+.tab-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* four tabs with icon, label and count do not fit 240 to 300 px: the count shows on the active tab, the others carry it in their tooltip */
+.tabs button:not([aria-selected='true']) .count {
+  display: none;
+}
+
+/* right: Joints and Properties, each scrolls on its own */
+.psecs {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.psec {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-bottom: 1px solid var(--border);
+}
+.psec.open {
+  flex: 1 1 0;
+}
+.psec:first-child.open {
+  flex: 0 1 auto;
+  max-height: 42%;
+}
+.psec-head {
+  display: flex;
+  align-items: center;
+  flex: none;
+  padding: 0 var(--s2) 0 0;
+  background: var(--panel);
+}
+.psec-toggle {
+  flex: 1;
+  justify-content: flex-start;
+  gap: 6px;
+  min-height: 34px;
+  border: none;
+  background: none;
+  padding: 0 var(--s3);
+}
+.psec-toggle:hover:not(:disabled) {
+  background: none;
+}
+.psec-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 var(--s3) var(--s3);
+}
+.psec:last-child .psec-body {
+  padding-bottom: 40px;
+}
+.chev {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(-45deg);
+  transition: transform var(--fast);
+  flex: none;
+}
+.chev.open {
+  transform: rotate(45deg);
+}
+
+/* ---------------------------------------------------------------- 3D view */
+
+.viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 35%, var(--view-top), var(--view-bottom) 85%);
+}
+.viewport-mount {
+  position: absolute;
+  inset: 0;
+}
+.viewport-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.view-controls {
+  position: absolute;
+  top: var(--s2);
+  right: var(--s2);
+  z-index: 5;
+  display: flex;
+  gap: var(--s1);
+}
+.vc-group {
+  display: flex;
+  padding: 2px;
+  gap: 1px;
+  background: var(--overlay-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(6px);
+}
+.vc-btn {
+  min-height: 24px;
+  padding: 0 7px;
+  border-color: transparent;
+  background: transparent;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+}
+.vc-btn.icon-only {
+  min-width: 26px;
+  padding: 0;
+}
+
+.tool-pill {
+  position: absolute;
+  bottom: var(--s3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  padding: 6px 14px;
+  border-radius: 14px;
+  background: var(--text);
+  color: var(--panel);
+  font-size: var(--fs-sm);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.tool-options {
+  position: absolute;
+  bottom: var(--s3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  max-width: calc(100% - 24px);
+  padding: 6px var(--s2);
+  background: var(--overlay-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+.opt-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.opt-field input.num {
+  width: 64px;
+}
+.opt-hint {
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.unit {
+  color: var(--muted);
+}
+
+/* the welcome panel */
+.welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow: auto;
+  padding: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.welcome-head {
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-start;
+}
+.welcome-head h2 {
+  font-size: 18px;
+}
+.welcome-head p {
+  margin: 2px 0 0;
+}
+.welcome-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s4);
+}
+.welcome-actions button {
+  min-height: 32px;
+}
+.welcome-drop {
+  margin: var(--s2) 0 0;
+}
+.welcome-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: var(--s2);
+  margin: var(--s4) 0 0;
+  padding: var(--s3) 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  counter-reset: step;
+}
+.welcome-steps li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  counter-increment: step;
+}
+.welcome-steps strong {
+  color: var(--text);
+  font-size: var(--fs);
+}
+.welcome-steps strong::before {
+  content: counter(step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: var(--fs-xs);
+}
+
+.drop-hint {
+  position: absolute;
+  inset: var(--s3);
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--accent);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent-soft) 70%, transparent);
+  color: var(--accent-text);
+  font-size: 16px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.marquee {
+  position: fixed;
+  z-index: 30;
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  pointer-events: none;
+}
+.port-tip {
+  position: fixed;
+  z-index: 30;
+  max-width: 320px;
+  padding: 6px 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: var(--fs-sm);
+  pointer-events: none;
+}
+.perf {
+  position: absolute;
+  left: var(--s2);
+  bottom: var(--s2);
+  z-index: 5;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--overlay-bg);
+  font: var(--fs-xs) / 1.3 var(--mono);
+}
+
+/* ---------------------------------------------------------------- status bar */
+
+.statusbar {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+  padding: 0 var(--s3);
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  overflow: hidden;
+}
+.status-item {
+  white-space: nowrap;
+  flex: none;
+}
+.statusbar > .status-item:first-child {
+  flex: 1 1 auto;
+}
+.status-spacer {
+  flex: 0 0 0;
+}
+.check-chip {
+  min-height: 20px;
+  padding: 0 8px;
+  gap: 5px;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  flex: none;
+}
+.check-chip.fail {
+  background: var(--error-bg);
+  border-color: color-mix(in srgb, var(--error) 40%, transparent);
+  color: var(--error);
+}
+.check-chip.warn {
+  background: var(--warn-bg);
+  border-color: color-mix(in srgb, var(--warn) 40%, transparent);
+  color: var(--warn);
+}
+.check-chip.ok {
+  background: var(--ok-bg);
+  border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+  color: var(--ok);
+}
+.check-chip:disabled {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------------- notices and progress */
+
+.notices {
+  position: absolute;
+  right: var(--s2);
+  top: 48px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  width: min(380px, calc(100% - 16px));
+  max-height: calc(100% - 64px);
+  overflow-y: auto;
+}
+.notice {
+  padding: var(--s2) var(--s3);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.notice-warning {
+  border-left-color: var(--warn);
+}
+.notice-error {
+  border-left-color: var(--error);
+}
+.notice-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s2);
+}
+.notice-level {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-text);
+  padding-top: 2px;
+}
+.notice-warning .notice-level {
+  color: var(--warn);
+}
+.notice-error .notice-level {
+  color: var(--error);
+}
+.notice-title {
+  flex: 1;
+  font-weight: 600;
+}
+.notice-head .icon-btn {
+  min-height: 20px;
+  min-width: 20px;
+}
+.notice-details {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: var(--fs-sm);
+}
+.notice-details li {
+  margin: 2px 0;
+}
+.x {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+.x::before,
+.x::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: -1px;
+  width: 1.5px;
+  height: 12px;
+  background: currentColor;
+}
+.x::before {
+  transform: rotate(45deg);
+}
+.x::after {
+  transform: rotate(-45deg);
+}
+.progress {
+  position: absolute;
+  left: 50%;
+  bottom: var(--s4);
+  z-index: 15;
+  transform: translateX(-50%);
+  width: min(420px, calc(100% - 32px));
+  padding: var(--s2) var(--s3);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.progress-label {
+  font-size: var(--fs-sm);
+  margin-bottom: 6px;
+}
+.progress-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--panel-3);
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+}
+
+/* ---------------------------------------------------------------- dialogs */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: var(--s4);
+  background: rgba(10, 12, 16, 0.45);
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: min(460px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+.modal:focus {
+  outline: none;
+}
+/* title bar: the Dialog component's, and the h2 of older dialogs */
+.modal-head,
+.modal > h2 {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s3) var(--s4);
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+.modal-head h2 {
+  flex: 1;
+  font-size: 15px;
+}
+.modal-body {
+  padding: var(--s4);
+  flex: 1 1 auto;
+}
+.modal > :not(.modal-head):not(h2):not(.modal-actions):not(.modal-body) {
+  margin-left: var(--s4);
+  margin-right: var(--s4);
+}
+.modal > h2 + * {
+  margin-top: var(--s3);
+}
+.modal p {
+  margin: var(--s2) 0;
+}
+.modal-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+  margin-top: var(--s3);
+  padding: var(--s3) var(--s4);
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+}
+.modal-actions .primary {
+  min-width: 88px;
+}
+.unit-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.modal.help {
+  width: min(560px, 100%);
+}
+.help-about {
+  display: flex;
+  gap: var(--s3);
+  align-items: center;
+  margin-bottom: var(--s4);
+}
+.help .section-label {
+  margin: var(--s3) 0 var(--s2);
+}
+.shortcut-list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+.shortcut {
+  display: grid;
+  grid-template-columns: minmax(150px, auto) 1fr;
+  gap: var(--s3);
+  padding: 3px 0;
+  border-bottom: 1px solid var(--border);
+}
+.shortcut dt,
+.shortcut dd {
+  margin: 0;
+}

@@ -1,0 +1,27 @@
+{
+  "links": 1,
+  "joints": 0,
+  "meshes": 6,
+  "triangles": 656,
+  "mesh_triangles": {
+    "enclosure.shell": 244,
+    "enclosure.divider": 12,
+    "enclosure.standoff_1": 100,
+    "enclosure.standoff_2": 100,
+    "enclosure.standoff_3": 100,
+    "enclosure.standoff_4": 100
+  },
+  "bbox_mm": {
+    "min": [
+      -80,
+      -50,
+      0
+    ],
+    "max": [
+      80,
+      50,
+      60
+    ]
+  },
+  "joint_list": []
+}

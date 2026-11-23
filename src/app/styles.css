@@ -1,0 +1,4 @@
+/* The app's stylesheet, by area: tokens and base elements, the shell, then panel content. */
+@import './styles/tokens.css';
+@import './styles/content.css';
+@import './styles/shell.css';

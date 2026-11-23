@@ -1,0 +1,29 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+coverage/
+.vite/
+*.local
+.DS_Store
+Thumbs.db
+# Large generated performance fixtures are built locally, never committed
+tools/out/
+*.tsbuildinfo
+
+# Runs only where the owner has the LEAP Hand model locally; it holds figures measured from that model
+tests/app/leapHand.test.ts
+
+# Launch commands for the owner's own PC (local paths); the README has the public ones
+control.md
+
+# Secrets and local settings
+.env
+.env.*
+.claude/settings.local.json
+
+# Editors and logs
+.vscode/
+.idea/
+*.log

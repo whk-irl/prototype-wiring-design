@@ -1,0 +1,1 @@
+{"path":"scene.links[0]","design":{"schema":1,"scene":{"links":[{"id":"a","name":"a"},{"id":"b","name":"b"}],"joints":[{"id":"j1","name":"j1","type":"fixed","parent":"a","child":"b","origin":{"p_mm":[0,0,0],"q":[0,0,0,1]}},{"id":"j2","name":"j2","type":"fixed","parent":"b","child":"a","origin":{"p_mm":[0,0,0],"q":[0,0,0,1]}}]}}}

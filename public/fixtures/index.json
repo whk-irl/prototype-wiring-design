@@ -1,0 +1,39 @@
+[
+  {
+    "id": "enclosure",
+    "title": "Electronics enclosure",
+    "description": "Open-top 160 x 100 x 60 mm enclosure with standoffs, a divider wall and two cable holes (STEP assembly).",
+    "files": [
+      "enclosure.step"
+    ],
+    "design": "design.json"
+  },
+  {
+    "id": "chassis",
+    "title": "Mobile robot chassis",
+    "description": "Plate, two motors, two wheels and a battery block (GLB).",
+    "files": [
+      "chassis.glb"
+    ],
+    "design": "design.json"
+  },
+  {
+    "id": "arm-cad",
+    "title": "CAD-only arm (no joints yet)",
+    "description": "A STEP assembly of a three-joint arm in one rigid pose, as a CAD export would give it. It has no joints: define them yourself by selecting the bodies that move and clicking each pivot.",
+    "files": [
+      "arm-cad.step"
+    ],
+    "design": "design.json"
+  },
+  {
+    "id": "arm3",
+    "title": "Three-axis arm with gripper",
+    "description": "Hand-written URDF: base yaw, shoulder, elbow and a prismatic gripper finger.",
+    "files": [
+      "arm3.urdf",
+      "meshes/gripper_base.stl"
+    ],
+    "design": "design.json"
+  }
+]

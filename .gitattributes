@@ -1,0 +1,14 @@
+# One line ending everywhere, so a Windows checkout matches a Linux one.
+* text=auto eol=lf
+
+# Model files are hashed by the sample designs: never convert them.
+*.step -text
+*.stp -text
+*.urdf -text
+*.obj -text
+
+*.glb binary
+*.stl binary
+*.jpg binary
+*.png binary
+*.wasm binary

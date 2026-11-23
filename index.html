@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wiring Design: route and check cables on a 3D model</title>
+    <meta
+      name="description"
+      content="Route the wires of a robot or machine on its 3D model (STEP, IGES, glTF, STL, OBJ or URDF): place parts, draw cables port to port, check fit, bend radius and length across the joints' motion, and export a cut list. Runs in the browser."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='%231f6feb'/%3E%3Crect x='6' y='18' width='7' height='8' rx='1.5' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M9.5 18V13a6 6 0 0 1 6-6H26' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='26' cy='7' r='2.2' fill='white'/%3E%3C/svg%3E"
+    />
+    <script>
+      // Set the theme before the first paint (ui/theme.ts keeps it in step afterwards).
+      try {
+        var t = localStorage.getItem('wiring-design.theme');
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/app/main.tsx"></script>
+  </body>
+</html>

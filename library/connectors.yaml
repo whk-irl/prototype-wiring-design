@@ -1,0 +1,492 @@
+# Connector families. Format: src/core/connectors.ts (ConnectorSchema). Sources and derivations: docs/CONNECTORS.md.
+#
+# One entry is a family in all its sizes. A port names the family and its number of ways.
+# Boxes are in the port frame: +X is the direction the cable leaves, the housing lies behind the
+# origin, the plug in front, width along the contact row. confidence 'datasheet' = every figure
+# stated by the maker; 'derived' = maker's drawing plus an allowance or sum stated in the note;
+# 'generic' = secondary source or no dimensions found, see the note. Nothing here is from memory.
+version: 1
+connectors:
+  - id: jst-sh
+    name: "JST SH 1.0 mm wire-to-board"
+    short: "JST SH"
+    aliases: ["Qwiic", "STEMMA QT", "SR (IDC socket mates)"]
+    pitch_mm: 1
+    rows: 1
+    ways: { min: 2, max: 20 }
+    housing: { length_mm: 4.25, height_mm: 2.9, width: { per_way_mm: 1, plus_mm: 2 } }
+    plug: { length_mm: 8, height_mm: 2.8, width: { per_way_mm: 1, plus_mm: 3 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 28, thinnest: 32 }
+        od_max_mm: 0.8
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/eSH.pdf
+    note: "Dimensions from the JST SH catalogue sheet. Housing = the header on the part (top-entry body: depth 4.25 mm along the mating axis, 2.9 mm thick, width 1.0 mm per way + 2.0 mm). Plug = the crimp housing; its length is the housing's 5 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header from the BM..B-SRSS-TB table (width = A + 2), housing SHR..-S-B with protrusions (width B = ways + 3). Insulation OD range 0.4 to 0.8 mm."
+
+  - id: jst-gh
+    name: "JST GH 1.25 mm wire-to-board"
+    short: "JST GH"
+    pitch_mm: 1.25
+    rows: 1
+    ways: { min: 2, max: 15 }
+    housing: { length_mm: 4.05, height_mm: 4.25, width: { per_way_mm: 1.25, plus_mm: 3.25 } }
+    plug: { length_mm: 8.7, height_mm: 4.15, width: { per_way_mm: 1.25, plus_mm: 1.25 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 26, thinnest: 30 }
+        od_max_mm: 1.0
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/eGH.pdf
+    note: "Dimensions from the JST GH catalogue sheet. Housing = the header on the part (top-entry body: depth 4.05 mm along the mating axis, 4.25 mm thick, width 1.25 mm per way + 3.25 mm). Plug = the crimp housing; its length is the housing's 5.7 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header BM..B-GHS-TBT (width B = 1.25 x ways + 3.25), housing GHR (width B = 1.25 x ways + 1.25). Insulation OD range 0.76 to 1.0 mm."
+
+  - id: jst-ph
+    name: "JST PH 2.0 mm wire-to-board"
+    short: "JST PH"
+    pitch_mm: 2
+    rows: 1
+    ways: { min: 2, max: 16 }
+    housing: { length_mm: 6, height_mm: 4.5, width: { per_way_mm: 2, plus_mm: 1.9 } }
+    plug: { length_mm: 9.85, height_mm: 4.5, width: { per_way_mm: 2, plus_mm: 1.8 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 24, thinnest: 32 }
+        od_max_mm: 1.5
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/ePH.pdf
+    note: "Dimensions from the JST PH catalogue sheet. Housing = the header on the part (top-entry body: depth 6.0 mm along the mating axis, 4.5 mm thick, width 2.0 mm per way + 1.9 mm). Plug = the crimp housing; its length is the housing's 6.85 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header B..B-PH-K-S through-hole top entry (width B = 2 x ways + 1.9), housing PHR (width B = 2 x ways + 1.8). Contact variants cover 32 to 24 AWG overall, insulation OD 0.5 to 1.5 mm."
+
+  - id: jst-xh
+    name: "JST XH 2.5 mm wire-to-board"
+    short: "JST XH"
+    pitch_mm: 2.5
+    rows: 1
+    ways: { min: 2, max: 20 }
+    housing: { length_mm: 7, height_mm: 5.75, width: { per_way_mm: 2.5, plus_mm: 2.4 } }
+    plug: { length_mm: 10.5, height_mm: 5.7, width: { per_way_mm: 2.5, plus_mm: 2.3 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 22, thinnest: 30 }
+        od_max_mm: 1.9
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/eXH.pdf
+    note: "Dimensions from the JST XH catalogue sheet. Housing = the header on the part (top-entry body: depth 7.0 mm along the mating axis, 5.75 mm thick, width 2.5 mm per way + 2.4 mm). Plug = the crimp housing; its length is the housing's 7.5 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header B..B-XH-A top entry (width B = 2.5 x ways + 2.4), housing XHP (width B = 2.5 x ways + 2.3). Insulation OD range 0.9 to 1.9 mm."
+
+  - id: jst-zh
+    name: "JST ZH 1.5 mm wire-to-board"
+    short: "JST ZH"
+    pitch_mm: 1.5
+    rows: 1
+    ways: { min: 2, max: 13 }
+    housing: { length_mm: 4.5, height_mm: 3.5, width: { per_way_mm: 1.5, plus_mm: 1.5 } }
+    plug: { length_mm: 7.2, height_mm: 3.4, width: { per_way_mm: 1.5, plus_mm: 1.5 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 26, thinnest: 32 }
+        od_max_mm: 1.1
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/eZH.pdf
+    note: "Dimensions from the JST ZH catalogue sheet. Housing = the header on the part (top-entry body: depth 4.5 mm along the mating axis, 3.5 mm thick, width 1.5 mm per way + 1.5 mm). Plug = the crimp housing; its length is the housing's 4.2 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header B..B-ZR top entry (width B = 1.5 x ways + 1.5), housing ZHR (width B = 1.5 x ways + 1.5). Insulation OD range 0.5 to 1.1 mm."
+
+  - id: jst-eh
+    name: "JST EH 2.5 mm wire-to-board (DYNAMIXEL X-series TTL/RS-485 connector)"
+    short: "JST EH"
+    aliases: ["DYNAMIXEL 3P", "DYNAMIXEL 4P", "EHR"]
+    pitch_mm: 2.5
+    rows: 1
+    ways: { min: 2, max: 15 }
+    housing: { length_mm: 6, height_mm: 3.8, width: { per_way_mm: 2.5, plus_mm: 2.5 } }
+    plug: { length_mm: 9.5, height_mm: 3.8, width: { per_way_mm: 2.5, plus_mm: 2 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        awg: { thickest: 22, thinnest: 30 }
+        od_max_mm: 1.9
+    confidence: derived
+    source: https://www.jst-mfg.com/product/pdf/eng/eEH.pdf
+    note: "Dimensions from the JST EH catalogue sheet. Housing = the header on the part (top-entry body: depth 6.0 mm along the mating axis, 3.8 mm thick, width 2.5 mm per way + 2.5 mm). Plug = the crimp housing; its length is the housing's 6.5 mm insertion height plus 3 mm for the crimp barrel and straight wire run, an assumption of this library, not a JST figure. Wire range and insulation OD are the contact's, as stated by JST. Header B..B-EH top entry (width B = 2.5 x ways + 2.5), housing EHR (width B = 2.5 x ways + 2.0). The ROBOTIS e-manual (XL330-M288, XM430-W350) lists housing JST EHR-03 (EHR-04 for RS-485), header B3B-EH-A and 'wire gauge for DYNAMIXEL: 21 AWG', which is thicker than the 22 AWG JST states for the contact, so DYNAMIXEL leads are not checked against the AWG limit here. XL430 and the GH variant mentioned by the requester were not checked."
+
+  - id: picoblade
+    name: "Molex PicoBlade 1.25 mm wire-to-board (51021 housing)"
+    short: "PicoBlade"
+    aliases: ["PicoBlade"]
+    pitch_mm: 1.25
+    rows: 1
+    ways: { min: 2, max: 15 }
+    accepts:
+      - families: [hookup_wire, jumper]
+        termination: per_contact
+    confidence: generic
+    source: https://assets.testequity.com/te1/Documents/pdf/Molex/Molex_51021-1500_Header-and-Wire-Housing_Datasheet.pdf
+    note: "The only Molex document opened (the 15-circuit 51021 sheet) carries no dimensions, wire range or insulation OD, and molex.com did not answer, so there are no boxes and no wire limits here. Pitch is the family's name. The way range is unverified (a 15-way part exists; the lower limit and any larger size were not opened). Add figures from the Molex drawing 51021xxxx_sd.pdf."
+
+  - id: kk-254
+    name: "Molex KK 254 / generic 2.54 mm crimp housing (Dupont-style)"
+    short: "KK 254"
+    aliases: ["KK254", "Dupont crimp housing"]
+    pitch_mm: 2.54
+    rows: 1
+    ways: { min: 2, max: 12 }
+    accepts:
+      - families: [hookup_wire, jumper]
+        termination: per_contact
+    confidence: generic
+    note: "No Molex page with dimensions could be opened (molex.com did not answer; distributor pages returned 403). Pitch is the family's name; the way range is unverified. No boxes and no wire limits. Dupont-style jumper ends are covered by the pin-header and pin-socket entries, whose plugs use datasheet pin lengths."
+
+  - id: pin-header-2.54
+    name: "Pin header 2.54 mm, single row, male (Dupont jumpers and crimped single wires plug on)"
+    short: "Pin header"
+    aliases: ["Dupont", "0.1 in header"]
+    pitch_mm: 2.54
+    rows: 1
+    ways: { min: 1, max: 40 }
+    housing: { length_mm: 2.54, height_mm: 2.54, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    plug: { length_mm: 9, height_mm: 2.54, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        note: "A female Dupont housing or crimped single wire goes on each pin."
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/61300411121.pdf
+    note: "Wurth WR-PHD 61300411121 (1 x 4): body 2.54 mm thick, 2.54 mm high, length L = 2.54 x ways (L = 10.16 for 4), pins 6.0 mm above the body and 3.0 mm below. Plug = the female housing over the 6.0 mm of pin plus a 3 mm allowance for the crimp and wire run (assumption). The 1 to 40 way range is the usual strip length and was not read from a datasheet. Wire gauge of a Dupont crimp was not found."
+
+  - id: pin-header-2.54-2row
+    name: "Pin header 2.54 mm, two rows, male"
+    short: "Pin header"
+    pitch_mm: 2.54
+    rows: 2
+    ways: { min: 2, max: 80 }
+    housing: { length_mm: 2.54, height_mm: 5.08, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    plug: { length_mm: 9, height_mm: 5.08, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        note: "One jumper wire or crimped wire per pin."
+      - families: [ribbon]
+        termination: whole
+        cable_pitch_mm: 1.27
+        note: "1.27 mm ribbon carrying an IDC socket (for example the 40-way Raspberry Pi GPIO ribbon)."
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/61300421121.pdf
+    note: "Wurth WR-PHD dual 61300421121 (2 x 2): body 5.08 mm across the two rows, 2.54 mm high, L = 2.54 x ways per row, pins 6.0 mm above the body. Plug and way range as for the single row (assumption and unverified range)."
+
+  - id: pin-socket-2.54
+    name: "Pin socket (female header) 2.54 mm, single row"
+    short: "Pin socket"
+    pitch_mm: 2.54
+    rows: 1
+    ways: { min: 1, max: 40 }
+    housing: { length_mm: 8.5, height_mm: 2.5, width: { per_way_mm: 2.54, plus_mm: 0.5 } }
+    plug: { length_mm: 5.54, height_mm: 2.54, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        note: "A male jumper end or pin goes into each socket."
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/61300411821.pdf
+    note: "Wurth WR-PHD socket 61300411821 (1 x 4): 8.5 mm high, 2.5 mm thick, L = 2.54 x ways + 0.5 (10.66 for 4). Plug = a male jumper end: 2.54 mm housing height plus a 3 mm allowance (assumption). The 1 to 40 way range is unverified."
+
+  - id: pin-socket-2.54-2row
+    name: "Pin socket (female header) 2.54 mm, two rows"
+    short: "Pin socket"
+    pitch_mm: 2.54
+    rows: 2
+    ways: { min: 4, max: 80 }
+    housing: { length_mm: 8.5, height_mm: 5.08, width: { per_way_mm: 2.54, plus_mm: 0.5 } }
+    plug: { length_mm: 9, height_mm: 5.08, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        note: "One pin or jumper end per socket."
+    confidence: generic
+    source: https://www.we-online.com/components/products/datasheet/61300411821.pdf
+    note: "No two-row WR-PHD socket datasheet was found (searches returned only distributor listings without drawings). Housing is the single-row socket sheet (Wurth 61300411821: 8.5 mm high, L = 2.54 x ways + 0.5) with the thickness taken as two rows at 2.54 mm = 5.08 mm, an assumption. Plug as for the two-row header (6.0 mm pin plus 3 mm allowance). Way range unverified."
+
+  - id: audio-jack-3.5
+    name: "3.5 mm TRS/TRRS audio jack"
+    short: "Audio jack"
+    aliases: ["3.5 mm jack", "headphone jack"]
+    rows: 1
+    ways: { min: 3, max: 4 }
+    confidence: generic
+    note: "Generic placeholder: no maker figure was opened, so no boxes. It takes a 3.5 mm TRS (3 contacts) or TRRS (4 contacts) plug lead; the library has no audio cable type, so nothing is checked."
+
+  - id: idc-2.54-2row
+    name: "Box header 2.54 mm, two rows, for IDC ribbon cable (takes 2.54 mm or 1.27 mm ribbon)"
+    short: "IDC header"
+    pitch_mm: 2.54
+    rows: 2
+    ways: { min: 6, max: 64 }
+    accepts:
+      - families: [ribbon]
+        termination: whole
+        cable_pitch_mm: 1.27
+        note: "IDC socket on 1.27 mm ribbon (2 conductors per 2.54 mm column)."
+      - families: [ribbon]
+        termination: whole
+    confidence: generic
+    note: "The Wurth WR-BHD datasheets (61200621621 to 61206421621 are listed for 6 to 64 ways) returned 404 when opened, so there are no housing or plug boxes. Pitch and the way range come from that listing and the family's name. The first accepts entry is for 1.27 mm ribbon; a 2.54 mm ribbon would need a 2.54 mm cable pitch, which no cable in the library has yet."
+
+  - id: servo-3pin
+    name: "Hobby servo 3-pin lead (1 x 3 2.54 mm header, JR/Futaba style)"
+    short: "Servo lead"
+    aliases: ["servo header"]
+    pitch_mm: 2.54
+    rows: 1
+    ways: { min: 3, max: 3 }
+    housing: { length_mm: 2.54, height_mm: 2.54, width: { per_way_mm: 2.54, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper, harness]
+        termination: per_contact
+        note: "Servo plug: one wire per pin."
+    confidence: generic
+    source: https://www.we-online.com/components/products/datasheet/61300411121.pdf
+    note: "Housing is the single-row header body from the Wurth sheet above. No source was found for the dimensions of a servo plug (Pololu's pages list 22 AWG, 60-strand wire and 0.1 in pitch only), so there is no plug box and no wire limit."
+
+  - id: usb-a
+    name: "USB Type-A receptacle"
+    short: "USB-A"
+    rows: 1
+    ways: { min: 4, max: 4 }
+    housing: { length_mm: 8.88, height_mm: 5.12, width: { per_way_mm: 0, plus_mm: 12.5 } }
+    plug: { length_mm: 18.4, height_mm: 8, width: { per_way_mm: 0, plus_mm: 16 } }
+    accepts:
+      - families: [usb]
+        termination: whole
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/USB_hardware
+    note: "4 contacts (9 for USB 3). Plug overmould 16 x 8 mm is the independent reviewer's figure, not verified. Housing = receptacle opening width x height x depth from the Wikipedia USB hardware table (secondary). Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened."
+
+  - id: usb-b
+    name: "USB Type-B receptacle"
+    short: "USB-B"
+    rows: 1
+    ways: { min: 4, max: 4 }
+    housing: { length_mm: 8.88, height_mm: 7.78, width: { per_way_mm: 0, plus_mm: 8.45 } }
+    plug: { length_mm: 18.4, height_mm: 11.35, width: { per_way_mm: 0, plus_mm: 12.1 } }
+    accepts:
+      - families: [usb]
+        termination: whole
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/USB_hardware
+    note: "4 contacts. Plug = 8.0 x 7.25 mm shell plus 4.1 mm. Housing = receptacle opening width x height x depth from the Wikipedia USB hardware table (secondary). Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened."
+
+  - id: usb-mini-b
+    name: "USB Mini-B receptacle"
+    short: "USB Mini-B"
+    rows: 1
+    ways: { min: 5, max: 5 }
+    housing: { length_mm: 5.5, height_mm: 3.1, width: { per_way_mm: 0, plus_mm: 6.9 } }
+    plug: { length_mm: 18.4, height_mm: 7.1, width: { per_way_mm: 0, plus_mm: 10.9 } }
+    accepts:
+      - families: [usb]
+        termination: whole
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/USB_hardware
+    note: "5 contacts. Plug = 6.8 x 3.0 mm shell plus 4.1 mm. Housing = receptacle opening width x height x depth from the Wikipedia USB hardware table (secondary). Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened."
+
+  - id: usb-micro-b
+    name: "USB Micro-B receptacle"
+    short: "USB Micro-B"
+    rows: 1
+    ways: { min: 5, max: 5 }
+    housing: { length_mm: 3.5, height_mm: 1.85, width: { per_way_mm: 0, plus_mm: 6.9 } }
+    plug: { length_mm: 18.4, height_mm: 8.5, width: { per_way_mm: 0, plus_mm: 10.6 } }
+    accepts:
+      - families: [usb]
+        termination: whole
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/USB_hardware
+    note: "5 contacts; the receptacle row is shared with Micro-A and Micro-AB. Plug overmould 10.6 x 8.5 mm is the independent reviewer's figure for the Micro-USB maximum, not verified. Housing = receptacle opening width x height x depth from the Wikipedia USB hardware table (secondary). Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened."
+
+  - id: usb-c
+    name: "USB Type-C receptacle"
+    short: "USB-C"
+    rows: 1
+    ways: { min: 24, max: 24 }
+    housing: { length_mm: 6.2, height_mm: 3.26, width: { per_way_mm: 0, plus_mm: 8.94 } }
+    plug: { length_mm: 18.4, height_mm: 6.4, width: { per_way_mm: 0, plus_mm: 12.3 } }
+    accepts:
+      - families: [usb]
+        termination: whole
+    confidence: derived
+    source: https://www.assmann-wsw.com/uploads/datasheets/ASS_10363_CA.pdf
+    note: "24 contacts. Plug overmould 12.3 x 6.4 mm from the Assmann drawing (agrees with the reviewer's 12.35 x 6.5 mm). Housing width and height 8.94 x 3.26 mm are the outside of the shell, the reviewer's figure (not verified; the Wikipedia table gives only the 8.34 x 2.56 mm opening), depth 6.2 mm from Wikipedia. Housing = receptacle opening width x height x depth from the Wikipedia USB hardware table (secondary). Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened."
+
+  - id: rj45
+    name: "RJ45 (8P8C) modular jack"
+    short: "RJ45"
+    rows: 1
+    ways: { min: 8, max: 8 }
+    plug: { length_mm: 22.48, height_mm: 8, width: { per_way_mm: 0, plus_mm: 11.68 } }
+    accepts:
+      - families: [ethernet]
+        termination: whole
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/Modular_connector
+    note: "Wikipedia's typical 8P8C dimensions: length 22.48, width 11.68, height 8.00 mm, not split between plug and jack. Used here as the plug (with its boot); no jack housing box because no jack figure was opened. Secondary source."
+
+  - id: hdmi
+    name: "HDMI Type A receptacle"
+    short: "HDMI"
+    rows: 1
+    ways: { min: 19, max: 19 }
+    plug: { length_mm: 18.4, height_mm: 8.55, width: { per_way_mm: 0, plus_mm: 18 } }
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/HDMI
+    note: "Metal plug 13.9 x 4.45 mm from Wikipedia's HDMI article (secondary; it also gives 6.4 x 2.8 mm for Type D, not reconciled); the plug box adds 4.1 mm to each. Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened. No housing box. The library has no HDMI cable type, so what it takes is not checked."
+
+  - id: hdmi-mini
+    name: "HDMI Type C (mini) receptacle"
+    short: "Mini HDMI"
+    rows: 1
+    ways: { min: 19, max: 19 }
+    plug: { length_mm: 18.4, height_mm: 6.52, width: { per_way_mm: 0, plus_mm: 14.52 } }
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/HDMI
+    note: "Metal plug 10.42 x 2.42 mm from Wikipedia's HDMI article (secondary; it also gives 6.4 x 2.8 mm for Type D, not reconciled); the plug box adds 4.1 mm to each. Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened. No housing box. The library has no HDMI cable type, so what it takes is not checked."
+
+  - id: hdmi-micro
+    name: "HDMI Type D (micro) receptacle"
+    short: "Micro HDMI"
+    rows: 1
+    ways: { min: 19, max: 19 }
+    plug: { length_mm: 18.4, height_mm: 6.3, width: { per_way_mm: 0, plus_mm: 9.93 } }
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/HDMI
+    note: "Metal plug 5.83 x 2.2 mm from Wikipedia's HDMI article (secondary; it also gives 6.4 x 2.8 mm for Type D, not reconciled); the plug box adds 4.1 mm to each. Plug box = the moulded plug, not the metal shell. Length 18.4 mm = 25 mm moulded body minus the 6.65 mm mating part, read from the Assmann ASS 10363 CA drawing of a USB-C to USB-C cable (A-USB32C2-32C2: aluminium shell 25 x 12.3 x 6.4 mm), used for every USB and HDMI plug here as a typical value. Where no maker drawing was opened the overmould is the metal shell plus 4.1 mm on width and height, the margin an independent reviewer gave for USB-C (12.35 x 6.5 mm vs 8.25 x 2.4 mm); the USB-IF and HDMI specifications themselves were not opened. No housing box. The library has no HDMI cable type, so what it takes is not checked."
+
+  - id: barrel-jack-5.5x2.1
+    name: "DC barrel jack 5.5 x 2.1 mm"
+    short: "Barrel jack"
+    rows: 1
+    ways: { min: 2, max: 2 }
+    plug: { length_mm: 18.4, height_mm: 10, width: { per_way_mm: 0, plus_mm: 10 } }
+    accepts:
+      - families: [hookup_wire, multicore]
+        termination: per_contact
+    confidence: generic
+    source: https://en.wikipedia.org/wiki/DC_connector
+    note: "Plug 5.5 mm outside diameter and 9.5 mm long, 2.1 mm centre pin, as stated for many non-proprietary plugs in Wikipedia's DC connector article (secondary). The 5.5 mm is the barrel; the plug box uses a 10 x 10 mm grip (the independent reviewer's figure, 9 to 10 mm, not verified) and the 18.4 mm length used for the USB plugs (typical value from the Assmann ASS 10363 CA drawing, not a barrel-plug figure). No jack housing box."
+
+  - id: ffc-0.5
+    name: "FFC/FPC connector 0.5 mm pitch (flip-lock ZIF, Hirose FH12)"
+    short: "Flat flex 0.5 mm"
+    aliases: ["FPC 0.5 mm"]
+    pitch_mm: 0.5
+    rows: 1
+    ways: { min: 6, max: 60 }
+    housing: { length_mm: 5.6, height_mm: 2, width: { per_way_mm: 0.5, plus_mm: 0.57 } }
+    plug: { length_mm: 6.3, height_mm: 0.4, width: { per_way_mm: 0.5, plus_mm: 0.5 } }
+    accepts:
+      - families: [ffc]
+        termination: whole
+        note: "FPC 0.3 mm thick (0.18 mm for the F type)."
+    confidence: derived
+    source: https://www.physics.utoronto.ca/~astummer/Archives/2014%20Micro%203D%20Magnetometer/Docs/Hirose%20FH12-16S-1SV(55),%20FFC%20connector,%20SMT%201mm%2016-pos.pdf
+    note: "Hirose FH12 catalogue (2010.9 copy), 0.5 mm bottom-contact type: overall width D = 0.5 x ways + 0.57 mm, depth 5.6 mm, height 2.0 mm (2.4 mm with the strengthened lock). Contacts 6 to 53 in the horizontal type, up to 60 in the vertical type. Plug = the cable end: the stiffened end of the Raspberry Pi 15-way cable is 6.3 mm long (RP-008146), used here as the straight length; its width is the cable's, 0.5 x ways + 0.5 mm, as for the Wurth 0.5 mm FFC. Other makers' connectors differ."
+
+  - id: ffc-1.0
+    name: "FFC/FPC connector 1.0 mm pitch (flip-lock ZIF, Hirose FH12)"
+    short: "Flat flex 1.0 mm"
+    aliases: ["FPC 1.0 mm"]
+    pitch_mm: 1
+    rows: 1
+    ways: { min: 4, max: 26 }
+    housing: { length_mm: 5.6, height_mm: 2, width: { per_way_mm: 1, plus_mm: 1.07 } }
+    plug: { length_mm: 6.3, height_mm: 0.4, width: { per_way_mm: 1, plus_mm: 1 } }
+    accepts:
+      - families: [ffc]
+        termination: whole
+        note: "FPC 0.3 mm thick."
+    confidence: derived
+    source: https://www.physics.utoronto.ca/~astummer/Archives/2014%20Micro%203D%20Magnetometer/Docs/Hirose%20FH12-16S-1SV(55),%20FFC%20connector,%20SMT%201mm%2016-pos.pdf
+    note: "Hirose FH12 catalogue, 1.0 mm bottom-contact type: overall width D = ways + 1.07 mm, depth 5.6 mm, height 2.0 mm; standard contact counts 5 to 26, eccentric type from 4. Plug as for ffc-0.5 (Raspberry Pi cable, width = ways + 1.0 mm as in its 16 mm 15-way cable)."
+
+  - id: screw-terminal-3.5
+    name: "Pluggable screw terminal 3.5 mm (Wurth WR-TBL 3611 plug)"
+    short: "Screw terminal 3.5 mm"
+    pitch_mm: 3.5
+    rows: 1
+    ways: { min: 2, max: 24 }
+    plug: { length_mm: 15.8, height_mm: 11.1, width: { per_way_mm: 3.5, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper]
+        termination: per_contact
+        awg: { thickest: 16, thinnest: 26 }
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/691361100002.pdf
+    note: "Wurth 691361100002: 3.5 mm pitch, solid and stranded wire 26 to 16 AWG, plug 15.8 mm and 11.1 mm in the two views; which of the two is the mating axis is not certain from the drawing, so the larger is entered as the length and the smaller as the height. The way range is unverified. No header housing box."
+
+  - id: screw-terminal-5.08
+    name: "Pluggable screw terminal 5.08 mm, PCB header side (Wurth WR-TBL 311)"
+    short: "Screw terminal 5.08 mm"
+    pitch_mm: 5.08
+    rows: 1
+    ways: { min: 2, max: 12 }
+    housing: { length_mm: 8.5, height_mm: 12, width: { per_way_mm: 5.08, plus_mm: 0 } }
+    accepts:
+      - families: [hookup_wire, jumper]
+        termination: per_contact
+    confidence: derived
+    source: https://www.we-online.com/components/products/datasheet/691311500002.pdf
+    note: "Wurth 691311500002 header: L = 5.08 x ways, 8.5 mm high (mating axis) and 12.0 mm deep, pins 3.9 mm. Taken as the header body; the 5.08 mm plug datasheet was not found (404), so no plug box and no wire range were entered. The way range is unverified."
+
+  - id: xt30
+    name: "Amass XT30 power connector"
+    short: "XT30"
+    pitch_mm: 5
+    rows: 1
+    ways: { min: 2, max: 2 }
+    accepts:
+      - families: [hookup_wire]
+        termination: per_contact
+    confidence: generic
+    source: https://store.comet.bg/download-file.php?id=30571
+    note: "The Amass XT30PW-M sheet (V1.2) was opened: 500 V, 15 A rated, 30 A peak, brass gold-plated, PA body. Its drawing callouts (13.95, 9.00, 13.30, 9.90, 5.00 mm) could not be assigned to length, width and height with confidence, so no boxes are entered; the 5.0 mm pitch is read from the same drawing and is uncertain. A second source, the Rotorama user manual for the Amass XT30U (opened), gives: 80 V DC, 20 A max with 16 AWG wire, mated pair 20.1 +/-0.5 mm long and 10.2 +/-0.3 mm high; the third dimension and the split between plug and housing are not given, so still no boxes."
+
+  - id: xt60
+    name: "Amass XT60 power connector"
+    short: "XT60"
+    pitch_mm: 7.2
+    rows: 1
+    ways: { min: 2, max: 2 }
+    plug: { length_mm: 20.2, height_mm: 8.1, width: { per_way_mm: 0, plus_mm: 15.5 } }
+    accepts:
+      - families: [hookup_wire]
+        termination: per_contact
+        note: "Amass recommends 12 AWG wire."
+    confidence: derived
+    source: https://mrsdprojects.ri.cmu.edu/2025teamb/wp-content/uploads/sites/84/2025/05/xt60.pdf
+    note: "Amass XT60-F sheet (V1.2): face 15.5 x 8.1 mm (contact centres 7.2 mm apart), overall length 20.2 mm; 30 A rated, 60 A peak, recommended wire 12 AWG. Plug box = the female housing; the width of 15.5 is along the contact row. No board-side housing figure opened."
+
+  - id: u.fl
+    name: "U.FL / MHF I micro-coax connector"
+    short: "U.FL"
+    aliases: ["IPEX", "I-PEX MHF1", "UFL"]
+    rows: 1
+    ways: { min: 1, max: 1 }
+    accepts:
+      - families: [coax]
+        termination: whole
+        od_max_mm: 1.37
+        note: "1.13, 1.32 and 1.37 mm micro-coax (as given for this task)."
+    confidence: generic
+    source: https://docs.rs-online.com/d3d1/A700000015827780.pdf
+    note: "Only the use with 1.13 mm coax (jacket 1.13 +/-0.1 mm, minimum bend 5.0 mm) was confirmed, from the Siretta MHF I datasheet. The Hirose and I-PEX pages returned 403, so the 1.32 and 1.37 mm sizes and the connector dimensions (mated height about 2.5 mm from a search snippet) are not verified and no boxes are entered."
+
+  - id: sma
+    name: "SMA coaxial connector"
+    short: "SMA"
+    rows: 1
+    ways: { min: 1, max: 1 }
+    accepts:
+      - families: [coax]
+        termination: whole
+    confidence: generic
+    note: "No SMA connector page was opened; no dimensions entered. The family only records that it takes coax."

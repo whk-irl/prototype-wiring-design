@@ -1,0 +1,304 @@
+{
+  "units": "mm",
+  "joints": [
+    {
+      "name": "base_yaw",
+      "type": "revolute",
+      "point_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "dir": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "moving_bodies": [
+        "turret",
+        "shoulder_pin",
+        "upper_arm",
+        "elbow_pin",
+        "forearm",
+        "tool_plate",
+        "screw_1",
+        "screw_2",
+        "screw_3",
+        "screw_4"
+      ],
+      "pick": [
+        {
+          "body": "pedestal",
+          "feature": "shaft",
+          "edge": "fillet",
+          "surface_point_mm": [
+            10.0,
+            0.0,
+            75.0
+          ],
+          "radius_mm": 10.0
+        },
+        {
+          "body": "pedestal",
+          "feature": "shaft",
+          "edge": "fillet",
+          "surface_point_mm": [
+            10.0,
+            0.0,
+            62.8
+          ],
+          "radius_mm": 10.0
+        },
+        {
+          "body": "turret",
+          "feature": "hole",
+          "edge": "chamfer",
+          "surface_point_mm": [
+            9.516231763884825,
+            4.437491748277344,
+            70.0
+          ],
+          "radius_mm": 10.5
+        },
+        {
+          "body": "turret",
+          "feature": "hole",
+          "edge": "chamfer",
+          "surface_point_mm": [
+            9.516231763884825,
+            4.437491748277344,
+            61.8
+          ],
+          "radius_mm": 10.5
+        }
+      ]
+    },
+    {
+      "name": "shoulder",
+      "type": "revolute",
+      "point_mm": [
+        0.0,
+        0.0,
+        110.0
+      ],
+      "dir": [
+        -0.42261826174069944,
+        0.9063077870366499,
+        0.0
+      ],
+      "moving_bodies": [
+        "upper_arm",
+        "elbow_pin",
+        "forearm",
+        "tool_plate",
+        "screw_1",
+        "screw_2",
+        "screw_3",
+        "screw_4"
+      ],
+      "pick": [
+        {
+          "body": "shoulder_pin",
+          "feature": "shaft",
+          "edge": "fillet",
+          "surface_point_mm": [
+            4.531538935183249,
+            2.1130913087034973,
+            110.0
+          ],
+          "radius_mm": 5.0
+        },
+        {
+          "body": "shoulder_pin",
+          "feature": "shaft",
+          "edge": "fillet",
+          "surface_point_mm": [
+            -3.37142255936783,
+            19.061046926288853,
+            110.0
+          ],
+          "radius_mm": 5.0
+        },
+        {
+          "body": "shoulder_pin",
+          "feature": "face",
+          "edge": "fillet",
+          "surface_point_mm": [
+            -8.874983496554687,
+            19.03246352776965,
+            110.0
+          ],
+          "radius_mm": 3.5
+        },
+        {
+          "body": "turret",
+          "feature": "hole",
+          "edge": "sharp",
+          "surface_point_mm": [
+            -2.471709957001311,
+            17.604847340674684,
+            110.0
+          ],
+          "radius_mm": 5.2
+        },
+        {
+          "body": "upper_arm",
+          "feature": "hole",
+          "edge": "sharp",
+          "surface_point_mm": [
+            5.550973204794539,
+            -1.8250503602410781,
+            112.98259746902544
+          ],
+          "radius_mm": 5.2
+        }
+      ]
+    },
+    {
+      "name": "elbow",
+      "type": "revolute",
+      "point_mm": [
+        111.36058147591561,
+        51.92829195881312,
+        196.0364654526569
+      ],
+      "dir": [
+        -0.42261826174069944,
+        0.9063077870366499,
+        0.0
+      ],
+      "moving_bodies": [
+        "forearm",
+        "tool_plate",
+        "screw_1",
+        "screw_2",
+        "screw_3",
+        "screw_4"
+      ],
+      "pick": [
+        {
+          "body": "elbow_pin",
+          "feature": "shaft",
+          "edge": "chamfer",
+          "surface_point_mm": [
+            114.22736433496473,
+            55.47185059818019,
+            198.90434763441215
+          ],
+          "radius_mm": 5.0
+        },
+        {
+          "body": "elbow_pin",
+          "feature": "shaft",
+          "edge": "chamfer",
+          "surface_point_mm": [
+            108.98689788938006,
+            66.71006715743465,
+            198.90434763441215
+          ],
+          "radius_mm": 5.0
+        },
+        {
+          "body": "elbow_pin",
+          "feature": "face",
+          "edge": "chamfer",
+          "surface_point_mm": [
+            104.59868928806442,
+            66.42921655139952,
+            196.0364654526569
+          ],
+          "radius_mm": 4.0
+        },
+        {
+          "body": "upper_arm",
+          "feature": "hole",
+          "edge": "sharp",
+          "surface_point_mm": [
+            116.91155468071014,
+            50.10324159857204,
+            199.01906292168235
+          ],
+          "radius_mm": 5.2
+        },
+        {
+          "body": "upper_arm",
+          "feature": "hole",
+          "edge": "keyway",
+          "surface_point_mm": [
+            113.46180215023166,
+            48.494595574870345,
+            201.216677882734
+          ],
+          "radius_mm": 5.2
+        },
+        {
+          "body": "forearm",
+          "feature": "hole",
+          "edge": "sharp",
+          "surface_point_mm": [
+            108.39038300934327,
+            59.37028901931014,
+            201.21667788273396
+          ],
+          "radius_mm": 5.2
+        }
+      ]
+    }
+  ],
+  "not_axes": [
+    {
+      "body": "tool_plate",
+      "kind": "flat_rectangle",
+      "surface_point_mm": [
+        127.05099673084626,
+        68.07187610351923,
+        344.76842422443747
+      ]
+    },
+    {
+      "body": "base_plate",
+      "kind": "flat_rectangle",
+      "surface_point_mm": [
+        40.0,
+        -40.0,
+        10.0
+      ]
+    },
+    {
+      "body": "forearm",
+      "kind": "flat_rectangle",
+      "surface_point_mm": [
+        111.36817043683324,
+        67.37912161488133,
+        270.7510678095378
+      ]
+    },
+    {
+      "body": "upper_arm",
+      "kind": "flat_side_of_bar",
+      "surface_point_mm": [
+        59.906473355364795,
+        16.90106810904006,
+        153.01823272632845
+      ]
+    },
+    {
+      "body": "shoulder_pin",
+      "kind": "fillet",
+      "surface_point_mm": [
+        -4.555948634326861,
+        20.561704694485986,
+        110.0
+      ]
+    },
+    {
+      "body": "pedestal",
+      "kind": "fillet",
+      "surface_point_mm": [
+        10.585786437626904,
+        0.0,
+        60.58578643762691
+      ]
+    }
+  ]
+}

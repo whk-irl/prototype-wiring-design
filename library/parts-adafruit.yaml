@@ -1,0 +1,1475 @@
+# Real parts from Adafruit_CAD_Parts (MIT, https://github.com/adafruit/Adafruit_CAD_Parts).
+# Model: the vendor STEP converted by tools/build-part.ts. Ports: JST SH connectors and terminal blocks read from the named bodies of the STEP,
+# header rows from the plated holes in the STEP (pads, header not fitted unless stated), flying leads from the lead stubs in the STEP and the product page.
+# Port exit rotations: +X [0,0,0,1]  -X [0,0,1,0]  +Y [0,0,0.7071068,0.7071068]  -Y [0,0,-0.7071068,0.7071068]
+#   up, row along X [-0.5,-0.5,-0.5,0.5]   up, row along Y [0,-0.7071068,0,0.7071068]
+version: 1
+parts:
+  - id: adafruit-4646-bno055
+    name: "BNO055 9-axis IMU, STEMMA QT (Adafruit 4646)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "4646"
+    tags: ["imu", "bno055", "bosch", "orientation", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "Bosch BNO055 absolute-orientation IMU breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 20.32, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -7.62], d_mm: 2.5 }
+      - { p_mm: [10.16, -7.62], d_mm: 2.5 }
+      - { p_mm: [-10.16, 7.62], d_mm: 2.5 }
+      - { p_mm: [10.16, 7.62], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way: VIN 3V GND SCL SDA RST (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -7.62, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["power", "i2c", "gpio"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -7.62 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source. Silkscreen read from the Adafruit product photo (4646-06.jpg); which end of the row is VIN was not matched to the model X axis."
+      - id: hdr-2
+        name: "Pads, 4 way: INT ADR PS0 PS1 (header not fitted)"
+        connector: pin-header-2.54
+        ways: 4
+        pose: { p_mm: [0, 7.62, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["gpio"]
+        note: "4 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y 7.62 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source. Silkscreen read from the Adafruit product photo (4646-06.jpg); order along the row was not matched to the model X axis."
+    model:
+      uri: adafruit-4646-bno055.glb
+      sha256: 99f6ace735c7842243843bc123741f225036ddd63f73d7b3d4ba5e3a5f6d8a8e
+      triangles: 7940
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4646%20BNO055%20Stemma/4646%20BNO055%20Stemma.step"
+      changes: "Converted from STEP to GLB and simplified from 11136 to 7940 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4646
+
+  - id: adafruit-4754-bno085
+    name: "BNO085 9-axis IMU, STEMMA QT (Adafruit 4754)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "4754"
+    tags: ["imu", "bno085", "bno080", "orientation", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "BNO085 (BNO080) orientation IMU breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 22.86, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -8.89], d_mm: 2.5 }
+      - { p_mm: [10.16, -8.89], d_mm: 2.5 }
+      - { p_mm: [-10.16, 8.89], d_mm: 2.5 }
+      - { p_mm: [10.16, 8.89], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -8.89, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -8.89 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, 8.89, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y 8.89 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-4754-bno085.glb
+      sha256: 29a0a525f7319323528e3100f527e188d708dbb5f79927350557617b17f8de9c
+      triangles: 7924
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4754%20BNO085%20STEMMA%20QT/4754%20BNO085%20STEMMA%20QT.step"
+      changes: "Converted from STEP to GLB and simplified from 13336 to 7924 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4754
+
+  - id: adafruit-4517-lsm6dsox-lis3mdl
+    name: "LSM6DSOX + LIS3MDL 9-DoF IMU, STEMMA QT (Adafruit 4517)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "4517"
+    tags: ["imu", "lsm6dsox", "lis3mdl", "magnetometer", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "LSM6DSOX accelerometer/gyro plus LIS3MDL magnetometer breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 5 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 5
+        pose: { p_mm: [-1.27, 6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "5 plated holes at 2.54 mm pitch read from the board in the STEP, centred x -1.27 mm, y 6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-4517-lsm6dsox-lis3mdl.glb
+      sha256: 9832d562822492819a27e3f37a054dd12a13842c9ac20708967c03319ecc8548
+      triangles: 7962
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4517%20LSM6DSOX-LIS3MDL/4517%20LSM6DSOX-LIS3MDL.step"
+      changes: "Converted from STEP to GLB and simplified from 8992 to 7962 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4517
+
+  - id: adafruit-2809-lis3dh
+    name: "LIS3DH 3-axis accelerometer, STEMMA QT (Adafruit 2809)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "2809"
+    tags: ["accelerometer", "lis3dh", "spi", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "LIS3DH triple-axis accelerometer breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, 6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y 6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-2809-lis3dh.glb
+      sha256: d219361ac2bbd85f11f459d605a0cee7c2ceec804f2b2ff650cdfa1992e6ef53
+      triangles: 7964
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/2809%20LIS3DH/2809%20LIS3DH.step"
+      changes: "Converted from STEP to GLB and simplified from 9344 to 7964 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/2809
+
+  - id: adafruit-2652-bme280
+    name: "BME280 temperature/humidity/pressure, STEMMA QT (Adafruit 2652)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "2652"
+    tags: ["bme280", "temperature", "humidity", "pressure", "environment", "spi", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "BME280 environmental sensor breakout with two STEMMA QT connectors, sensor side up (the STEP file is named BMP280 STEMMA QT)."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 7 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 7
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "7 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-2652-bme280.glb
+      sha256: 6d2fdc330abf8e3f8d122db4baf4235636ab6b888837dd298eaebe631f207ad8
+      triangles: 7968
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/2652%20Adafruit%20BME280/2652%20BMP280%20STEMMA%20QT.step"
+      changes: "Converted from STEP to GLB and simplified from 8536 to 7968 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/2652
+
+  - id: adafruit-3660-bme680
+    name: "BME680 environmental and gas sensor, STEMMA QT (Adafruit 3660)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "3660"
+    tags: ["bme680", "gas", "temperature", "humidity", "pressure", "environment", "spi", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "BME680 temperature, humidity, pressure and gas sensor breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.277, -0.014, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.277, 0.014, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 7 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 7
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "7 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-3660-bme680.glb
+      sha256: 4592b5fe34faec30a1c28c635eaff6d029ff137b068f74e99f90a8693fd13a69
+      triangles: 7788
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3660%20BME680/3660%20BME680.step"
+      changes: "Converted from STEP to GLB, 7788 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3660
+
+  - id: adafruit-2857-sht31d
+    name: "SHT31-D temperature and humidity sensor, STEMMA QT (Adafruit 2857)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "2857"
+    tags: ["sht31", "sht31-d", "temperature", "humidity", "environment", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "Sensirion SHT31-D temperature and humidity breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.54 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.571, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.571, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 7 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 7
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "7 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-2857-sht31d.glb
+      sha256: fcc34b6d119dbf814479dd6b5b360b731cab08b0a9bda74fb591cf62f396e596
+      triangles: 5912
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/2857%20SHT31-D/2857%20SHT31-D.step"
+      changes: "Converted from STEP to GLB, 5912 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/2857
+
+  - id: adafruit-3967-vl53l1x
+    name: "VL53L1X time-of-flight distance sensor, STEMMA QT (Adafruit 3967)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "3967"
+    tags: ["vl53l1x", "tof", "distance", "lidar", "range", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "VL53L1X time-of-flight ranging breakout (30 to 4000 mm) with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.508, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.508, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-3967-vl53l1x.glb
+      sha256: 4ce5585b2fae7a5c12a4849a76a8b3cea3d557e6538609570d419a87b5d6263f
+      triangles: 7746
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3967%20VL5SL1X%20TOF%20Sensor/3967%20VL5SL1X%20TOF%20Sensor.step"
+      changes: "Converted from STEP to GLB, 7746 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3967
+
+  - id: adafruit-5396-vl53l4cd
+    name: "VL53L4CD time-of-flight distance sensor, STEMMA QT (Adafruit 5396)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "5396"
+    tags: ["vl53l4cd", "tof", "distance", "lidar", "range", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "VL53L4CD time-of-flight ranging breakout (1 to 1300 mm) with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.508, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.508, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-5396-vl53l4cd.glb
+      sha256: bee4a3f9f5238bbb5d390e4d5db52177950e01e673cfd1e1a3fc02f312fae76d
+      triangles: 7116
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/5396%20VL53L4CD%20Sensor/5396%20Adafruit%20VL53L4CD.step"
+      changes: "Converted from STEP to GLB, 7116 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/5396
+
+  - id: adafruit-3316-vl6180
+    name: "VL6180X time-of-flight distance sensor, STEMMA QT (Adafruit 3316)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "3316"
+    tags: ["vl6180", "vl6180x", "tof", "distance", "range", "proximity", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "VL6180X proximity and ambient-light ranging breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-3316-vl6180.glb
+      sha256: 89f2448c65e5d3b4965e8fa68df9359afef3eef5b970bd102ac3be2f7a0abb0f
+      triangles: 7972
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3316%20VL6180%20ToF%20Sensor/3316%20VL6180%20ToF%20Sensor.step"
+      changes: "Converted from STEP to GLB, 7972 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3316
+
+  - id: adafruit-3595-apds9960
+    name: "APDS9960 proximity, light, RGB and gesture sensor, STEMMA QT (Adafruit 3595)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "3595"
+    tags: ["apds9960", "gesture", "proximity", "color", "light", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "APDS9960 gesture, proximity and colour sensor breakout with two STEMMA QT connectors, sensor side up."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-3595-apds9960.glb
+      sha256: e672023e05d2bc7456f493a5ec5170da584cdb37c105e7c0a1cb0c26c45bda31
+      triangles: 6816
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3595%20APDS9960%20Sensor/3595%20APDS9960%20Sensor.step"
+      changes: "Converted from STEP to GLB, 6816 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3595
+
+  - id: adafruit-904-ina219
+    name: "INA219 high-side current sensor, STEMMA QT (Adafruit 904)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "904"
+    tags: ["ina219", "current", "power-monitor", "voltage", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "INA219 high-side DC current and voltage monitor breakout (26 V, 3.2 A) with two STEMMA QT connectors."
+    body:
+      size_mm: [25.4, 20.32, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -7.62], d_mm: 2.5 }
+      - { p_mm: [10.16, -7.62], d_mm: 2.5 }
+      - { p_mm: [-10.16, 7.62], d_mm: 2.5 }
+      - { p_mm: [10.16, 7.62], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -7.62, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -7.62 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 2 way at 3.5 mm pitch (header not fitted)"
+        connector: screw-terminal-3.5
+        ways: 2
+        pose: { p_mm: [-0.05, 6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "2 plated holes at 3.5 mm pitch read from the board in the STEP, centred x -0.05 mm, y 6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-904-ina219.glb
+      sha256: 1f87f47d96e57b7c59c3d5912a32b7f2ab6d20eb0f051e37b2533c6873f71456
+      triangles: 6732
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/904%20INA219%20Stemma/904%20INA219%20Stemma.step"
+      changes: "Converted from STEP to GLB, 6732 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/904
+
+  - id: adafruit-1085-ads1115
+    name: "ADS1115 16-bit ADC, STEMMA QT (Adafruit 1085)"
+    category: other
+    manufacturer: Adafruit
+    mpn: "1085"
+    tags: ["ads1115", "adc", "analog", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "ADS1115 four-channel 16-bit ADC breakout with two STEMMA QT connectors."
+    body:
+      size_mm: [25.4, 17.78, 4.53]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, -6.35], d_mm: 2.5 }
+      - { p_mm: [-10.16, 6.35], d_mm: 2.5 }
+      - { p_mm: [10.16, 6.35], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.508, 0, 3.05], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.508, 0, 3.05], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, 6.35, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y 6.35 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-1085-ads1115.glb
+      sha256: 78666f214b635d23a5c756d69f62116cd6763d1e83ff694c79598de3e324fbad
+      triangles: 6632
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/1085%20ADS1115%20ADC/1085%20ADS1115%20ADC.step"
+      changes: "Converted from STEP to GLB, 6632 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/1085
+
+  - id: adafruit-5832-ina228
+    name: "INA228 power monitor, STEMMA QT (Adafruit 5832)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "5832"
+    tags: ["ina228", "current", "power-monitor", "voltage", "screw-terminal", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "INA228 85 V 20-bit high or low side power monitor with two STEMMA QT connectors and a 3-way screw terminal, component side up."
+    body:
+      size_mm: [25.4, 20.32, 12.1]
+      board: { z_mm: 2.03, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, 7.62], d_mm: 2.5 }
+      - { p_mm: [10.16, 7.62], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.127, -1.27, 5.08], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.127, -1.27, 5.08], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 8 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 8
+        pose: { p_mm: [0, -7.62, 3.6], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "8 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -7.62 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: term-1
+        name: "Screw terminal, 3 way 3.5 mm"
+        connector: screw-terminal-3.5
+        ways: 3
+        pose: { p_mm: [0, 9.873, 7.85], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power"]
+        note: "Fitted 3.5 mm terminal block (body TERMBLOCK_1X3-3.5MM), wire entry on the +Y edge face; position = middle of that face at half the height of the block above the board. Which signals each terminal carries was not read from a source."
+    model:
+      uri: adafruit-5832-ina228.glb
+      sha256: 91687e73f4cd68da1a7ab003c56748522c11c7f685b8739cf24c3eee32815134
+      triangles: 7962
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/5832%20INA228%20STEMMA%20QT/5832%20INA228%20STEMMA%20QT.step"
+      changes: "Converted from STEP to GLB and simplified from 16666 to 7962 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/5832
+
+  - id: adafruit-815-pca9685
+    name: "PCA9685 16-channel 12-bit PWM/servo driver (Adafruit 815)"
+    category: driver
+    manufacturer: Adafruit
+    mpn: "815"
+    tags: ["pca9685", "servo-driver", "pwm", "16-channel", "i2c", "adafruit"]
+    description: "PCA9685 16-channel I2C PWM and servo driver board with sixteen fitted 3-pin servo headers and a V+ screw terminal, component side up."
+    body:
+      size_mm: [62.23, 25.4, 12.1]
+      board: { z_mm: 2.01, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-27.94, -9.525], d_mm: 2.5 }
+      - { p_mm: [27.94, -9.525], d_mm: 2.5 }
+      - { p_mm: [-27.94, 9.525], d_mm: 2.5 }
+      - { p_mm: [27.94, 9.525], d_mm: 2.5 }
+    ports:
+      - id: servo-01
+        name: "Servo output 1 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-24.12, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -24.12 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-02
+        name: "Servo output 2 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-21.58, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -21.58 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-03
+        name: "Servo output 3 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-19.04, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -19.04 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-04
+        name: "Servo output 4 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-16.5, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -16.5 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-05
+        name: "Servo output 5 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-11.42, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -11.42 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-06
+        name: "Servo output 6 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-8.88, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -8.88 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-07
+        name: "Servo output 7 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-6.34, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -6.34 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-08
+        name: "Servo output 8 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [-3.8, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x -3.8 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-09
+        name: "Servo output 9 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [3.82, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 3.82 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-10
+        name: "Servo output 10 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [6.36, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 6.36 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-11
+        name: "Servo output 11 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [8.9, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 8.9 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-12
+        name: "Servo output 12 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [11.44, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 11.44 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-13
+        name: "Servo output 13 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [16.52, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 16.52 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-14
+        name: "Servo output 14 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [19.06, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 19.06 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-15
+        name: "Servo output 15 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [21.6, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 21.6 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: servo-16
+        name: "Servo output 16 (3-pin header)"
+        connector: pin-header-2.54
+        ways: 3
+        pose: { p_mm: [24.14, -8.75, 11.99], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["pwm", "power"]
+        note: "Fitted 3-pin male header, 3 pins along Y at x 24.14 mm (y -11.29, -8.75, -6.21); position = tip of the pins, cable leaves upward. Outputs are numbered here by position from -X to +X, not by PCA9685 channel number."
+      - id: power-terminal
+        name: "V+ power terminal, 2 way 3.5 mm"
+        connector: screw-terminal-3.5
+        ways: 2
+        pose: { p_mm: [-0.043, 12.478, 7.84], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power"]
+        note: "Fitted 3.5 mm terminal block (body TERMBLOCK_1X2-3.5MM), wire entry on the +Y edge face; position = middle of that face at half the height of the block above the board. Which signals each terminal carries was not read from a source."
+      - id: hdr-a
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted): I2C and power"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [-29.21, 0.127, 3.58], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["i2c", "power"]
+        note: "6 plated holes at 2.54 mm pitch along Y at x -29.21 mm, read from the board in the STEP. Pads, header not fitted: top face of the board, cable leaves upward. Two such rows are on the two short edges (I2C chain in and out); which one is the input was not read from a source, and the pin names were not read either."
+      - id: hdr-b
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted): I2C and power"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [29.21, 0.127, 3.58], q: [0, -0.7071068, 0, 0.7071068] }
+        interfaces: ["i2c", "power"]
+        note: "6 plated holes at 2.54 mm pitch along Y at x 29.21 mm, read from the board in the STEP. Pads, header not fitted: top face of the board, cable leaves upward. Two such rows are on the two short edges (I2C chain in and out); which one is the input was not read from a source, and the pin names were not read either."
+    model:
+      uri: adafruit-815-pca9685.glb
+      sha256: 41d3778266a8c4239e6c9bf3f583c9793e948531342bacad24c7636be28d80ee
+      triangles: 8202
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/815%20Servo%20Driver%2016%20Channel/815%20Servo%20Driver%2016%20Channel.step"
+      changes: "Converted from STEP to GLB and simplified from 23902 to 8202 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/815
+
+  - id: adafruit-3190-drv8871
+    name: "DRV8871 DC motor driver, 3.6 A (Adafruit 3190)"
+    category: driver
+    manufacturer: Adafruit
+    mpn: "3190"
+    tags: ["drv8871", "motor-driver", "dc-motor", "h-bridge", "adafruit"]
+    description: "DRV8871 brushed DC motor driver breakout with two fitted 3.5 mm screw terminals, component side up."
+    body:
+      size_mm: [20.32, 24.13, 12.1]
+      board: { z_mm: 2.01, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-7.62, -9.525], d_mm: 2.5 }
+      - { p_mm: [7.62, -9.525], d_mm: 2.5 }
+    ports:
+      - id: term-1
+        name: "Screw terminal, 2 way 3.5 mm"
+        connector: screw-terminal-3.5
+        ways: 2
+        pose: { p_mm: [-4.398, 11.833, 7.84], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power", "motor_phase"]
+        note: "Fitted 3.5 mm terminal block (body TERMBLOCK_1X2-3.5MM), wire entry on the +Y edge face; position = middle of that face at half the height of the block above the board. Which of the two blocks is the motor supply and which the motor output was not read from a source."
+      - id: term-2
+        name: "Screw terminal, 2 way 3.5 mm"
+        connector: screw-terminal-3.5
+        ways: 2
+        pose: { p_mm: [4.238, 11.833, 7.84], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power", "motor_phase"]
+        note: "Fitted 3.5 mm terminal block (body TERMBLOCK_1X2-3.5MM), wire entry on the +Y edge face; position = middle of that face at half the height of the block above the board. Which of the two blocks is the motor supply and which the motor output was not read from a source."
+      - id: hdr-1
+        name: "Pads, 4 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 4
+        pose: { p_mm: [0, -9.53, 3.58], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "4 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -9.53 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-3190-drv8871.glb
+      sha256: df5f79ee8ac3c274e5a69506cd79a230c3c3c54e1d07d414e0275738de9337cd
+      triangles: 8978
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3190%20DRV8871%20Breakout/3190%20DRV8871%20Breakout.step"
+      changes: "Converted from STEP to GLB and simplified from 23998 to 8978 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3190
+
+  - id: adafruit-6109-a4988
+    name: "A4988 stepper motor driver breakout (Adafruit 6109)"
+    category: driver
+    manufacturer: Adafruit
+    mpn: "6109"
+    tags: ["a4988", "stepper-driver", "stepper", "step-dir", "adafruit"]
+    description: "A4988 stepper motor driver breakout with a fitted 6-way 2.54 mm part on one edge and an unfitted 10-pad header row, component side up."
+    body:
+      size_mm: [26.67, 24.13, 12]
+      board: { z_mm: 1.93, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.795, -5.08], d_mm: 2.2 }
+      - { p_mm: [10.795, -5.08], d_mm: 2.2 }
+      - { p_mm: [-10.795, 9.525], d_mm: 2.2 }
+      - { p_mm: [10.795, 9.525], d_mm: 2.2 }
+    ports:
+      - id: hdr-1
+        name: "Pads, 10 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 10
+        pose: { p_mm: [0, -9.53, 3.5], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "10 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -9.53 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: conn-6
+        name: "6-way 2.54 mm row on the +Y edge (power and motor)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, 11.345, 12], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power", "motor_phase"]
+        note: "A fitted 6-way part at 2.54 mm pitch (x -7.84..7.84, y 5.145..11.345, z up to 12.0 mm). The STEP names it 1X06_2.54MMTERMINAL and does not say whether it is a wire-entry terminal or a socket, so the connector family is the nearest match (2.54 mm, 6 way). Position = middle of its +Y face at the top of the part. Assumed to take the power and motor wires; check against the board before use."
+    model:
+      uri: adafruit-6109-a4988.glb
+      sha256: 96d5da7530918067a869f9fabaf58fbff39350cb028471ffebc6eadf40322074
+      triangles: 8832
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/6109%20A4988%20Driver/6109%20A4988%20Driver.step"
+      changes: "Converted from STEP to GLB and simplified from 22742 to 8832 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/6109
+
+  - id: adafruit-5708-can-pal
+    name: "CAN Pal CAN bus transceiver, TJA1051T/3 (Adafruit 5708)"
+    category: driver
+    manufacturer: Adafruit
+    mpn: "5708"
+    tags: ["can", "can-bus", "tja1051", "transceiver", "adafruit"]
+    description: "CAN bus transceiver breakout with a fitted 3-way 3.5 mm screw terminal and a 7-pad logic header row, component side up."
+    body:
+      size_mm: [20.32, 20.32, 12.1]
+      board: { z_mm: 2.03, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-7.62, 7.62], d_mm: 2.5 }
+      - { p_mm: [7.62, 7.62], d_mm: 2.5 }
+    ports:
+      - id: term-1
+        name: "CAN screw terminal, 3 way 3.5 mm"
+        connector: screw-terminal-3.5
+        ways: 3
+        pose: { p_mm: [0, 10, 7.85], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["can"]
+        note: "Fitted 3.5 mm terminal block (body TERMBLOCK_1X3-3.5MM), wire entry on the +Y edge face; position = middle of that face at half the height of the block above the board. Which signals each terminal carries was not read from a source."
+      - id: hdr-1
+        name: "Pads, 7 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 7
+        pose: { p_mm: [0, -7.62, 3.6], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "7 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -7.62 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-5708-can-pal.glb
+      sha256: 66fce22c777b34dd7a3e7d38541c0eb8ee2a4dd1d211c688ccd631d255a22d0c
+      triangles: 8962
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/5708%20CAN%20Pal/5708%20CAN%20Pal.step"
+      changes: "Converted from STEP to GLB and simplified from 15148 to 8962 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/5708
+
+  - id: adafruit-4415-pa1010d
+    name: "Mini GPS PA1010D, STEMMA QT (Adafruit 4415)"
+    category: sensor
+    manufacturer: Adafruit
+    mpn: "4415"
+    tags: ["gps", "gnss", "pa1010d", "uart", "nmea", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "PA1010D GPS module breakout with UART and I2C, two STEMMA QT connectors and a CR1220 holder, GPS antenna side up."
+    body:
+      size_mm: [25.4, 25.4, 12.01]
+      board: { z_mm: 4.04, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-10.16, -10.16], d_mm: 2.5 }
+      - { p_mm: [10.16, -10.16], d_mm: 2.5 }
+      - { p_mm: [-3.95, 0], d_mm: 1.5 }
+      - { p_mm: [3.5, 0], d_mm: 1.5 }
+      - { p_mm: [0, 0.262], d_mm: 3 }
+      - { p_mm: [-10.16, 10.16], d_mm: 2.5 }
+      - { p_mm: [10.16, 10.16], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-12.635, 0, 7.09], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [12.635, 0, 7.09], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, -10.16, 5.61], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -10.16 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+      - id: hdr-2
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0, 10.16, 5.61], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y 10.16 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-4415-pa1010d.glb
+      sha256: d2e5de6e63708531a2b8730d93f16f16ddeabd72f472fbe7e242638792ebc7ba
+      triangles: 8938
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4415%20Mini%20GPS%20PA1010D/4415%20Mini%20GPS%20PA1010D.step"
+      changes: "Converted from STEP to GLB and simplified from 15284 to 8938 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4415
+
+  - id: adafruit-938-oled-128x64
+    name: "1.3\" 128x64 monochrome OLED, STEMMA QT (Adafruit 938)"
+    category: display
+    manufacturer: Adafruit
+    mpn: "938"
+    tags: ["oled", "ssd1306", "sh1106", "128x64", "display", "monochrome", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "1.3 inch 128x64 monochrome OLED breakout with two STEMMA QT connectors on the back, display side up."
+    body:
+      size_mm: [35.56, 33.02, 6.526]
+      board: { z_mm: 2.96, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-15.24, -13.97], d_mm: 2.5 }
+      - { p_mm: [15.24, -13.97], d_mm: 2.5 }
+      - { p_mm: [-15.24, 13.97], d_mm: 2.5 }
+      - { p_mm: [15.24, 13.97], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [-17.344, 0.001, 1.48], q: [0, 0, 1, 0] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel. The connector is on the back of the board (the side opposite the display)."
+      - id: qt-2
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [17.344, -0.001, 1.48], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel. The connector is on the back of the board (the side opposite the display)."
+      - id: hdr-1
+        name: "Pads, 8 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 8
+        pose: { p_mm: [0, -13.97, 2.96], q: [0.5, 0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "8 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.0 mm, y -13.97 mm. Pads, header not fitted: the position is the back face of the board (the connector side) and the cable leaves downward; the header can be fitted on either side. Pin names were not read from a source."
+    model:
+      uri: adafruit-938-oled-128x64.glb
+      sha256: 0355f23426a7956eb8b31c8b2ede76e0414de26a49b829c792dd154269abda2e
+      triangles: 7956
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/938%20Mono%20128x64%20OLED%20Stemma/938%20Mono%20128x64%20OLED%20Stemma.step"
+      changes: "Converted from STEP to GLB and simplified from 10592 to 7956 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/938
+
+  - id: adafruit-4440-oled-091
+    name: "0.91\" 128x32 monochrome OLED, STEMMA QT (Adafruit 4440)"
+    category: display
+    manufacturer: Adafruit
+    mpn: "4440"
+    tags: ["oled", "ssd1306", "128x32", "display", "monochrome", "i2c", "qwiic", "stemma", "stemma-qt", "adafruit"]
+    description: "0.91 inch 128x32 monochrome OLED breakout with one STEMMA QT connector on the back, display side up."
+    body:
+      size_mm: [34.071, 21.59, 5.486]
+      board: { z_mm: 2.96, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-13.444, -8.255], d_mm: 2.5 }
+      - { p_mm: [14.496, -8.255], d_mm: 2.5 }
+      - { p_mm: [-13.444, 8.255], d_mm: 2.5 }
+      - { p_mm: [14.496, 8.255], d_mm: 2.5 }
+    ports:
+      - id: qt-1
+        name: "STEMMA QT / Qwiic I2C"
+        connector: jst-sh
+        ways: 4
+        pose: { p_mm: [16.844, -0.254, 1.48], q: [0, 0, 0, 1] }
+        interfaces: ["i2c", "power"]
+        note: "Side-entry JST SH 4-pin (body named JST_SH4 in the STEP); position = middle of the housing's outer face. Both STEMMA QT connectors are wired in parallel. The connector is on the back of the board (the side opposite the display)."
+      - id: hdr-1
+        name: "Pads, 6 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 6
+        pose: { p_mm: [0.526, 8.13, 2.96], q: [0.5, 0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "6 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.526 mm, y 8.13 mm. Pads, header not fitted: the position is the back face of the board (the connector side) and the cable leaves downward; the header can be fitted on either side. Pin names were not read from a source."
+    model:
+      uri: adafruit-4440-oled-091.glb
+      sha256: d09d22e0e43f1230dae29d23ef07fb2b8af4b3d833e09a9588f0eabaa7a766f4
+      triangles: 6600
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4440%200.91%20OLED%20I2C%20Display/4440%200.91%20OLED%20I2C%20Display.step"
+      changes: "Converted from STEP to GLB, 6600 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4440
+
+  - id: adafruit-4313-tft-13
+    name: "1.3\" 240x240 IPS TFT, ST7789 (Adafruit 4313)"
+    category: display
+    manufacturer: Adafruit
+    mpn: "4313"
+    tags: ["tft", "ips", "st7789", "240x240", "display", "spi", "microsd", "adafruit"]
+    description: "1.3 inch 240x240 IPS TFT breakout with ST7789 driver and microSD slot, display side up; only an unfitted 11-pad header row was read from the model."
+    body:
+      size_mm: [38.1, 35.56, 4.915]
+      board: { z_mm: 1.465, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-16.51, -15.24], d_mm: 2.5 }
+      - { p_mm: [16.51, -15.24], d_mm: 2.5 }
+      - { p_mm: [-16.51, 15.24], d_mm: 2.5 }
+      - { p_mm: [16.51, 15.24], d_mm: 2.5 }
+    ports:
+      - id: hdr-1
+        name: "Pads, 11 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 11
+        pose: { p_mm: [0, 15.24, 3.035], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "11 plated holes at 2.54 mm pitch read from the board in the STEP, centred x -0.0 mm, y 15.24 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-4313-tft-13.glb
+      sha256: ee6d3833ed48591aa8b0de43be761c6ab28eefe5a0e32522debeb5314ce52070
+      triangles: 8980
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4313%201.3in%20TFT%20IPS%20Display/4313%201.3in-TFT-IPS-Display.step"
+      changes: "Converted from STEP to GLB and simplified from 15352 to 8980 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4313
+
+  - id: adafruit-1426-neopixel-stick-8
+    name: "NeoPixel Stick, 8 x 5050 RGB LED (Adafruit 1426)"
+    category: other
+    manufacturer: Adafruit
+    mpn: "1426"
+    tags: ["neopixel", "ws2812", "led", "led-strip", "stick", "adafruit"]
+    description: "Strip of eight 5050 RGB NeoPixels on a 50.8 mm board; the STEP is a single solid and holds no pad positions."
+    body:
+      size_mm: [50.8, 10.16, 2.6]
+    model:
+      uri: adafruit-1426-neopixel-stick-8.glb
+      sha256: 006416515576d652ae660098e2cc64cca02ec238ff4d01831f2d7fae403fe7f7
+      triangles: 1412
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/1426%208x%20NeoPixel%20Stick/1426%208x%20NeoPixel%20Stick.step"
+      changes: "Converted from STEP to GLB, 1412 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/1426
+
+  - id: adafruit-1463-neopixel-ring-16
+    name: "NeoPixel Ring, 16 x 5050 RGB LED (Adafruit 1463)"
+    category: other
+    manufacturer: Adafruit
+    mpn: "1463"
+    tags: ["neopixel", "ws2812", "led", "led-ring", "adafruit"]
+    description: "Ring of sixteen 5050 RGB NeoPixels, 44.4 mm outer diameter; the STEP holds no pad positions."
+    body:
+      size_mm: [44.435, 44.442, 3.3]
+    model:
+      uri: adafruit-1463-neopixel-ring-16.glb
+      sha256: c4b05a132deca46ecfe788ecafa1c73b3b8f87b64e0ffcb4342a55c19b5ab0b8
+      triangles: 820
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/1463%2016x%20NeoPixel%20Ring/1463%2016x%20NeoPixel%20Ring.step"
+      changes: "Converted from STEP to GLB, 820 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/1463
+
+  - id: adafruit-2465-powerboost-1000c
+    name: "PowerBoost 1000C LiPo boost charger, 5 V 1 A (Adafruit 2465)"
+    category: power
+    manufacturer: Adafruit
+    mpn: "2465"
+    tags: ["powerboost", "boost", "lipo", "charger", "5v", "usb", "adafruit"]
+    description: "PowerBoost 1000C LiPo charger and 5 V boost converter with micro-USB charge input and JST PH battery connector; the USB-A output jack is not in the STEP."
+    body:
+      size_mm: [36.383, 22.86, 6.37]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-15.369, -8.89], d_mm: 2.5 }
+      - { p_mm: [16, -6.252], d_mm: 2.3 }
+      - { p_mm: [16, 6.888], d_mm: 2.3 }
+      - { p_mm: [-15.369, 8.89], d_mm: 2.5 }
+    ports:
+      - id: usb-micro
+        name: "USB micro-B charge input"
+        connector: usb-micro-b
+        ways: 5
+        pose: { p_mm: [-18.19, 0, 2.82], q: [0, 0, 1, 0] }
+        interfaces: ["usb2", "power"]
+        note: "Body at x -18.19..-12.59, y -4.4..4.4, z 1.32..4.32 on the -X edge, identified by its size and position (every body in this STEP is named PCB Component). Position = middle of its outer face."
+      - id: battery
+        name: "LiPo battery JST PH 2-pin"
+        connector: jst-ph
+        ways: 2
+        pose: { p_mm: [-7.24, 11.17, 3.97], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["power"]
+        note: "Body at x -11.19..-3.29, y 3.57..11.17, z 1.57..6.37 on the +Y edge. Identified by size: it matches the body named JSTPH2 on Adafruit 4410 (7.6 x 7.9 x 4.8 mm, rotated). Position = middle of its outer face, cable leaves +Y."
+      - id: hdr-1
+        name: "Pads, 8 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 8
+        pose: { p_mm: [3.808, -10.16, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "8 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 3.808 mm, y -10.16 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-2465-powerboost-1000c.glb
+      sha256: 252b17317667d87383a95466dbee228ba088cdd9ad502af15922eb0205a5194a
+      triangles: 6628
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/2465%20Powerboost%201000C/2465%20Adafruit%20PowerBoost%201000C%20Rev%20B.step"
+      changes: "Converted from STEP to GLB and simplified from 41488 to 6628 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/2465
+
+  - id: adafruit-4410-microlipo-usbc
+    name: "Micro-Lipo charger with USB-C (Adafruit 4410)"
+    category: power
+    manufacturer: Adafruit
+    mpn: "4410"
+    tags: ["lipo", "charger", "usb-c", "micro-lipo", "adafruit"]
+    description: "Micro-Lipo LiPoly charger with USB-C input, JST PH battery connector and a 5-pad header row, component side up."
+    body:
+      size_mm: [23.982, 19.05, 6.37]
+      board: { z_mm: 0.0, thickness_mm: 1.57 }
+    mounting_holes:
+      - { p_mm: [-8.329, -6.985], d_mm: 2.5 }
+      - { p_mm: [9.451, -6.985], d_mm: 2.5 }
+      - { p_mm: [-8.329, 6.985], d_mm: 2.5 }
+      - { p_mm: [9.451, 6.985], d_mm: 2.5 }
+    ports:
+      - id: usb-c
+        name: "USB-C charge input"
+        connector: usb-c
+        ways: 24
+        pose: { p_mm: [-11.991, -0.015, 2.732], q: [0, 0, 1, 0] }
+        interfaces: ["usb2", "power"]
+        note: "Receptacle body USB_C_CUSB31-CFM2AX-01-X in the STEP, on the -X edge (overhangs the board by about 1.1 mm); position = middle of its outer face."
+      - id: battery
+        name: "LiPo battery JST PH 2-pin"
+        connector: jst-ph
+        ways: 2
+        pose: { p_mm: [11.635, 0, 3.97], q: [0, 0, 0, 1] }
+        interfaces: ["power"]
+        note: "Body named JSTPH2 in the STEP on the +X edge; position = middle of its outer face, cable leaves +X."
+      - id: hdr-1
+        name: "Pads, 5 way at 2.54 mm pitch (header not fitted)"
+        connector: pin-header-2.54
+        ways: 5
+        pose: { p_mm: [0.561, 6.99, 1.57], q: [-0.5, -0.5, -0.5, 0.5] }
+        interfaces: ["other"]
+        note: "5 plated holes at 2.54 mm pitch read from the board in the STEP, centred x 0.561 mm, y 6.99 mm. Pads, header not fitted: the position is the top face of the board and the cable leaves upward. Pin names were not read from a source."
+    model:
+      uri: adafruit-4410-microlipo-usbc.glb
+      sha256: 07898fd6a8d7fafefc3a29805243667a6f1266f97abac0ff090830e004752f4d
+      triangles: 7982
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/4410%20Micro%20Lipo%20USBC/4410%20Micro%20Lipo%20USBC.step"
+      changes: "Converted from STEP to GLB and simplified from 10402 to 7982 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/4410
+
+  - id: adafruit-1143-micro-servo
+    name: "Micro servo MG90D, metal gear (Adafruit 1143)"
+    category: actuator
+    manufacturer: Adafruit
+    mpn: "1143"
+    tags: ["servo", "micro-servo", "mg90", "mg90d", "metal-gear", "pwm", "adafruit"]
+    description: "Micro servo with metal gears (22.8 x 12.2 x 28.5 mm per the product page), lying with the shaft up, body below the mounting ears."
+    body:
+      size_mm: [31.3, 12, 30.68]
+    ports:
+      - id: lead
+        name: "Servo lead (3-wire, flying)"
+        connector: servo-3pin
+        ways: 3
+        pose: { p_mm: [13.15, 0, 1], q: [0, 0, 0, 1] }
+        interfaces: ["pwm", "power"]
+        note: "Attached flying lead: position = where the 4 mm lead stub in the STEP leaves the base of the body (its +X end). Lead length is not stated on the product page. Wires per product text: yellow signal, orange or red +5 V, brown or black ground."
+    model:
+      uri: adafruit-1143-micro-servo.glb
+      sha256: 2c9fe0b0e387bca150048367cb251c026d771e1ee028232abbf37d218a987994
+      triangles: 1470
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/1143%20Micro%20Servo%20-%20High%20Torque%20Metal%20Gear/1143%20Micro%20Servo%20High%20Torque%20Metal%20Gear.step"
+      changes: "Converted from STEP to GLB, 1470 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/1143
+
+  - id: adafruit-2201-submicro-servo
+    name: "Sub-micro servo SG51R (Adafruit 2201)"
+    category: actuator
+    manufacturer: Adafruit
+    mpn: "2201"
+    tags: ["servo", "sub-micro-servo", "sg51r", "pwm", "adafruit"]
+    description: "Sub-micro servo SG51R (25 x 22 x 12 mm per the product page), lying with the shaft up, body below the mounting ears."
+    body:
+      size_mm: [30.1, 11.8, 24.9]
+    ports:
+      - id: lead
+        name: "Servo lead (3-wire, flying)"
+        connector: servo-3pin
+        ways: 3
+        pose: { p_mm: [12.45, 0, 4.9], q: [0, 0, 0, 1] }
+        interfaces: ["pwm", "power"]
+        note: "Attached flying lead, 150 mm long (product page). Position = the end of the three 1 mm wire stubs the STEP shows leaving the +X end of the body, in the middle of the three wires. Wire colours: orange control wire per the product text; the others were not read."
+    model:
+      uri: adafruit-2201-submicro-servo.glb
+      sha256: 449ea354a26d889ef63eff1afed495f4a14f07113b6a958f089b35d7c179f6ee
+      triangles: 1668
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/2201%20Submicro%20servo/2201%20Submicro%20Servo%20SG51R.step"
+      changes: "Converted from STEP to GLB, 1668 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/2201
+
+  - id: adafruit-324-nema17
+    name: "NEMA-17 stepper motor, 200 steps/rev 12 V 350 mA (Adafruit 324)"
+    category: actuator
+    manufacturer: Adafruit
+    mpn: "324"
+    tags: ["stepper", "nema17", "bipolar", "motor", "adafruit"]
+    description: "NEMA-17 bipolar stepper (42 mm square body, 31 mm M3 hole square per the product page) standing on its rear face with the 5 mm shaft up; the 8 inch leads are not in the STEP."
+    body:
+      size_mm: [42.3, 42.3, 55]
+    mounting_holes:
+      - { p_mm: [-15.5, -15.5], d_mm: 3 }
+      - { p_mm: [-15.5, 15.5], d_mm: 3 }
+      - { p_mm: [15.5, -15.5], d_mm: 3 }
+      - { p_mm: [15.5, 15.5], d_mm: 3 }
+    model:
+      uri: adafruit-324-nema17.glb
+      sha256: 65287415856b1ec140668c85acaa27e5fcfa57c22b9613048fa0e8573ccb4e7a
+      triangles: 4989
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/324%20NEMA-17%20Stepper%20Motor/324%20NEMA-17%20Stepper%20Motor.step"
+      changes: "Converted from STEP to GLB and simplified from 16624 to 4989 triangles."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/324
+
+  - id: adafruit-858-stepper-5v
+    name: "Stepper motor, 5 V 32-step 1/16 geared, 28BYJ-48 class (Adafruit 858)"
+    category: actuator
+    manufacturer: Adafruit
+    mpn: "858"
+    tags: ["stepper", "28byj-48", "28byj48", "unipolar", "geared", "5v", "adafruit"]
+    description: "Small geared unipolar stepper (28 mm diameter, 20 mm tall plus 9 mm shaft per the product page) with mounting ears, standing on its back with the shaft up."
+    body:
+      size_mm: [42, 34.5, 29]
+    mounting_holes:
+      - { p_mm: [-17.5, 3.25], d_mm: 3.5 }
+      - { p_mm: [17.5, 3.25], d_mm: 3.5 }
+    ports:
+      - id: cable
+        name: "5-pin 0.1 in cable connector (4-phase unipolar)"
+        connector: kk-254
+        ways: 5
+        pose: { p_mm: [0, -17.25, 10.5], q: [0, 0, -0.7071068, 0.7071068] }
+        interfaces: ["motor_phase"]
+        note: "Attached 23 cm cable with a 5-pin connector at 0.1 in (2.54 mm) pitch (product page). Position = the middle of the end of the 17.7 x 9.7 x 17 mm body the STEP shows protruding from the -Y side of the motor; the plug family is not named on the page, KK 2.54 mm is the closest family in the library."
+    model:
+      uri: adafruit-858-stepper-5v.glb
+      sha256: c88e79a5d4f443241952ce4b812a2223da829e6b1cdfc0ad7ee89fad2f2df3cf
+      triangles: 3372
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/858%20Stepper%20Motor%205VDC/858%20Stepper%20Motor%205VDC.step"
+      changes: "Converted from STEP to GLB, 3372 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/858
+
+  - id: adafruit-3777-tt-motor
+    name: "TT gearbox DC motor, 200 RPM, 3-6 V (Adafruit 3777)"
+    category: actuator
+    manufacturer: Adafruit
+    mpn: "3777"
+    tags: ["dc-motor", "tt-motor", "gearbox", "motor", "adafruit"]
+    description: "TT DC gearbox motor (70 x 22 x 18 mm per the product page) lying on its side with the 3 mm axle along Y."
+    body:
+      size_mm: [70.6, 36.6, 22.4]
+    ports:
+      - id: wire-1
+        name: "Motor wire 1 (200 mm, 0.1 in male pin)"
+        connector: pin-header-2.54
+        ways: 1
+        pose: { p_mm: [28.7, 8.5, 6.2], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["motor_phase"]
+        note: "The product comes with two 200 mm wires ending in single 0.1 in male pins (product page). Position = a flat terminal tab on the motor can in the STEP, wire assumed to leave outward (+Y); the STEP has no modelled wires."
+      - id: wire-2
+        name: "Motor wire 2 (200 mm, 0.1 in male pin)"
+        connector: pin-header-2.54
+        ways: 1
+        pose: { p_mm: [28.7, 8.5, 16.2], q: [0, 0, 0.7071068, 0.7071068] }
+        interfaces: ["motor_phase"]
+        note: "The product comes with two 200 mm wires ending in single 0.1 in male pins (product page). Position = a flat terminal tab on the motor can in the STEP, wire assumed to leave outward (+Y); the STEP has no modelled wires."
+    model:
+      uri: adafruit-3777-tt-motor.glb
+      sha256: 4caec612bc226487af6a9cbef3326084911499d732576d67faa12ad68fbb8ff3
+      triangles: 3740
+      license: MIT
+      attribution: "Adafruit Industries (Adafruit_CAD_Parts)"
+      source: "https://github.com/adafruit/Adafruit_CAD_Parts/blob/main/3777%20TT%20Motor/3777%20TT%20Motor.step"
+      changes: "Converted from STEP to GLB, 3740 triangles, no simplification needed."
+    confidence: datasheet
+    source: https://www.adafruit.com/product/3777
